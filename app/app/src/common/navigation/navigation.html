@@ -1,0 +1,50 @@
+<aside id="sidebar" class="my-sidebar" ng-if="$ctrl.isShowedSidebar && $ctrl.isLogged">
+  <div>
+    <nav id="navsidebar" class="navbar-default navbar-static-side animate-show" role="navigation" style="background-color: #2f4050; height: 100%;padding-top:14px" >
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li style="height:33px;">
+            <div style="width:100%;">
+              <div class="navsidebar-hide-button"
+                   ng-click="$ctrl.isShowedSidebar = !$ctrl.isShowedSidebar" style="width:100%;">
+                <i class="fa fa-arrow-left" style="float:right"></i>
+              </div>
+            </div>
+          </li>
+          <li class="nav-header" style="padding-top:10px">
+            <div class="dropdown profile-element">
+              <a >
+
+                <span class="clear"> <span class="block m-t-xs"> <i class="fa fa-lg fa-user" style="margin-right:5px"> </i>
+                  <strong class="font-bold">      {{$ctrl.loggedUser}}</strong></span></span>
+              </a>
+            </div>
+          </li>
+          <li ui-sref-active="active"  ng-click="$ctrl.clickLink('home')">
+            <a ui-sref="home"><i class="fa fa-diamond"></i> <span class="nav-label">Na obiekcie</span> </a>
+          </li>
+
+          <li ui-sref-active="active"  ng-click="$ctrl.clickLink('transport-recording')">
+            <a ui-sref="transport-recording"><i class="fa fa-diamond"></i> Brama: ruch kołowy<span class="nav-label"></span> </a>
+          </li>
+
+
+          <li ui-sref-active="active"  ng-click="$ctrl.clickLink('person-recording')">
+            <a ui-sref="person-recording"><i class="fa fa-diamond"></i> Brama: ruch pieszy<span class="nav-label"></span> </a>
+          </li>
+          <li ui-sref-active="active"  ng-click="$ctrl.clickLink('objectsTab')">
+            <a ui-sref="objectsTab"><i class="fa fa-diamond"></i> Lista<span class="nav-label"></span> </a>
+          </li>
+          <li ui-sref-active="active"  ng-click="$ctrl.clickLink('historyChartTab')">
+            <a ui-sref="historyChart"><i class="fa fa-diamond"></i> Raport<span class="nav-label"></span> </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+</aside>
+
+
+
+

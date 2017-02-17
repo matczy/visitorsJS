@@ -1,0 +1,11 @@
+<div layout="row" style="margin-bottom: 5px" ng-if="$ctrl.isPerson()">
+    <div flex="25">Osoba</div>
+    <div flex><strong>{{$ctrl.object.surnameAndName}}</strong></div>
+
+</div>
+<div layout="row" style="margin-bottom: 5px" ng-if="$ctrl.isVehicle()">
+    <div flex="25">Pojazd</div>
+    <div flex><strong>{{$ctrl.object.registration}}</strong></div>
+
+</div>
+

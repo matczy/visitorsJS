@@ -1,0 +1,9 @@
+<form  role="form" name="addItemForm" novalidate>
+
+    <item-field layout-padding form_name="addItemForm" item="$ctrl.item" types="$ctrl.types" find_prompt="$ctrl.findPrompt({text:text})"></item-field>
+
+    <div layout="row" layout-padding style="padding: 0 0;">
+        <action-button title="Dodaj" color="btn-primary" form_name="addItemForm" size="normal" on-click="$ctrl.onAdd({data:{item:$ctrl.item, form:addItemForm}})"></action-button>
+        <action-button title="Zakoncz" color="btn-default"  size="normal" on-click="$ctrl.onCancel()"></action-button>
+    </div>
+</form>

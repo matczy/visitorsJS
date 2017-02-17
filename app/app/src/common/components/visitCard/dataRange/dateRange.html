@@ -1,0 +1,18 @@
+<div layout="row" layout-padding  style="padding-top:0; padding-bottom: 0">
+    <!--<div flex="50">-->
+        <!--&lt;!&ndash;<label>Data od*</label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="input-group date">&ndash;&gt;-->
+            <!--&lt;!&ndash;<input type="datetime" class="form-control input-lg">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="input-group-addon"><i class="fa fa-calendar"></i></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <div flex  style="padding-right:0;padding-left:0">
+        <label>Data do*</label>
+        <div class="input-group date">
+            <input type="datetime" class="form-control input-lg" date-time ng-model="$ctrl.endDate"  auto-close="true" view="date" min-view="minutes"  format="YYyy-MM-dd HH:mm" >
+            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+</div>

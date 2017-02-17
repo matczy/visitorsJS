@@ -1,0 +1,32 @@
+
+<div class="card">
+    <div class="modal-header">
+        <h3 class="modal-title">Utwórz przedmiot</h3>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div layout="column">
+                <div class="alert alert-danger" role="alert" ng-if="$ctrl.errorMessage">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    {{$ctrl.errorMessage}}
+                </div>
+                <item-field item="$ctrl.resolve.item" types="$ctrl.types"></item-field>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$ctrl.ok($ctrl.resolve.item)" >
+            Zapisz
+        </button>
+        <button class="btn btn-default" ng-click="$ctrl.cancel()">
+            Zamknij
+        </button>
+
+    </div>
+</div>
+
+
+

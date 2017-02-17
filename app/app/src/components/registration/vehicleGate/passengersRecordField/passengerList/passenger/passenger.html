@@ -1,0 +1,11 @@
+
+<div class="feed-element" layout="row" style="padding-bottom: 4px">
+    <div style="font-size: 13px ;font-weight: 600;   color:#737373;margin-left:8px;margin-right:25px">
+        {{$ctrl.person.surnameAndName}}
+        <span flex style="font-size: 13px; font-weight: 400;color:#737373">
+            {{$ctrl.person.documentIdentifier}}, {{$ctrl.person.company.name}}
+        </span>
+    </div>
+
+    <div flex layout="row" layout-align="end center" style="margin-right:4px"><i class="fa fa-close" style="color:#737373"  ng-click="$ctrl.remove({person:$ctrl.person})"></i></div>
+</div>

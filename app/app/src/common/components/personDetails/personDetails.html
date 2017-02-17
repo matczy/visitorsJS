@@ -1,0 +1,103 @@
+<div>
+    <div class="client-detail">
+            <div layout="row" style="font-weight: 700;margin-bottom: 12px" layout-align="center center">
+                <div style="font-size:24px;font-weight: 700">{{$ctrl.person.surnameAndName}}</div>
+                <div flex style="margin-left:20px">
+                    <person-type type="$ctrl.person.type"></person-type>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-default" ng-click="$ctrl.onEditAction()">Edytuj</button>
+                </div>
+            </div>
+            <ul class="list-group clear-list" style="margin-left:4px">
+                <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex="25">Telefon</div>
+                        <div flex  ng-if="$ctrl.person.phone"><strong>{{$ctrl.person.phone| phoneFilter}}</strong></div>
+                        <div flex ng-if="!$ctrl.person.phone"><strong>Nie podano</strong></div>
+
+                    </div>
+                </li>
+                <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex="25">Dokument</div>
+                        <div flex><strong>{{$ctrl.person.documentIdentifier}}</strong></div>
+                    </div>
+                </li>
+                <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex="25">Firma</div>
+                        <div flex><strong>{{$ctrl.person.company.name}}</strong></div>
+                    </div>
+                </li>
+                <li class="list-group-item"
+                    style="padding-top:5px;padding-bottom: 5px;     border-bottom: 1px solid #e7eaec;">
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex="25">Status</div>
+                        <div flex><strong ng-class="$ctrl.person.isOnObject?'green-text':'red-text'">{{$ctrl.person.isOnObject?'Na obiekcie':'Poza obiektem'}}</strong></div>
+                    </div>
+                </li>
+                <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex="25">Czarna lista</div>
+                        <div flex ng-class="$ctrl.person.isOnBlackList?'red-text':'green-text'">
+                            <strong>{{$ctrl.person.isOnBlackList?'Tak':'Nie'}}</strong>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex="25">Data utworzenia</div>
+                        <div flex><strong>{{$ctrl.person.createdDate |date:'yy-MM-dd HH:mm'}}</strong></div>
+                    </div>
+                </li>
+            </ul>
+
+            <div id="vertical-timeline" class="vertical-container dark-timeline no-margins">
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon blue-bg">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h4>Ostatnia wizyta</h4>
+                        <div layout="row" style="margin-bottom: 5px">
+                            <div flex>Wejście:
+                                <span><strong>{{$ctrl.person.lastEntry |date:'yy-MM-dd HH:mm'}}</strong></span></div>
+                            <div flex>Wyjście: <span flex ng-if="$ctrl.person.lastExit"><strong>{{$ctrl.person.lastExit |date:'yy-MM-dd HH:mm'}}</strong></span>
+                                <span ng-if="!$ctrl.person.lastExit"
+                                      class="green-text"><strong>Na obiekcie</strong></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon lazur-bg">
+                        <i class="fa fa-car"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content my-table" >
+                        <h4>Użytkowane pojazdy</h4>
+                        <ul class="list-group list-unstyled" style="margin-bottom: 0">
+                            <li class=list-group-item" ng-repeat="usedVehicle in $ctrl.usedVehicles" >
+                                <div layout="row" style="padding: 5px 5px 5px 0;">
+                                    <div flex="5">{{$index+1}}.</div>
+                                    <div flex="30"><strong>{{usedVehicle.registration}}</strong></div>
+                                    <div flex>{{usedVehicle.count}} <span ng-if="usedVehicle.count===1"> raz</span>
+                                        <span ng-if="usedVehicle.count!==1">razy</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

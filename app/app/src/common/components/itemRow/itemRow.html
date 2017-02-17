@@ -1,0 +1,24 @@
+<div layout="row" layout-align="center center" style="padding-top:8px;padding-bottom:8px;">
+    <div  flex="10" style="margin-left:10px">  <item-type type="$ctrl.item.type"></item-type></div>
+
+    <div  flex >
+        <div style="font-size:14px">
+            <b>{{$ctrl.item.code}}</b>
+        </div>
+        <div style="font-size:12px">
+            <span>Nazwa: {{$ctrl.item.name}}</span>
+        </div>
+    </div>
+
+    <div  flex="15"  ng-if="$ctrl.showCreatedDate"> {{$ctrl.item.createdDate|date:'yy-MM-dd HH:mm'}}</div>
+
+    <div  flex="15" style="margin-right:10px;text-align: right">
+        <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.item})">{{$ctrl.onActionTitle}}</button>
+    </div>
+</div>
+
+
+
+
+
+

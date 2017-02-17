@@ -1,0 +1,16 @@
+<div layout="row" layout-align="center center" style="padding-top:8px;padding-bottom:8px;">
+    <div  flex style="margin-left:10px">  <b>{{$ctrl.company.name}}</b></div>
+
+    <div flex="15" ng-class="$ctrl.company.isOnBlackList?'red-text':'green-text'">
+       <b>{{$ctrl.company.isOnBlackList?'Tak':'Nie'}}</b>
+    </div>
+
+    <div  flex="15"  ng-if="$ctrl.showCreatedDate"> {{$ctrl.company.createdDate|date:'yy-MM-dd HH:mm'}}</div>
+
+    <div  flex="15" style="margin-right:10px;text-align: right">
+        <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.item})">{{$ctrl.onActionTitle}}</button>
+    </div>
+</div>
+
+
+

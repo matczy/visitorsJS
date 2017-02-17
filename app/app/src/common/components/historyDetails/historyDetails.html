@@ -1,0 +1,229 @@
+<div>
+    <div class="client-detail" full-scroll>
+        <div layout="row" style="font-weight: 700;margin-bottom: 18px" layout-align="center center">
+            <div style="font-size:24px;font-weight: 700">{{$ctrl.title}}</div>
+            <div flex></div>
+        </div>
+        <ul class="list-group clear-list" style="margin-left:4px">
+            <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Data</div>
+                    <div flex><b>{{$ctrl.history.action.date |date:'yy-MM-dd HH:mm'}}</b></div>
+                </div>
+            </li>
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Akcja</div>
+                    <div flex> <div>
+                        <div class="label label-warning" ng-if="$ctrl.history.type ==='personGate'">{{$ctrl.history.action.type==='Entry'?'Wejście':'Wyjście'}}</div>
+                        <div class="label label-warning " ng-if="$ctrl.history.type ==='transportGate'">{{$ctrl.history.action.type==='Entry'?'Wjazd':'Wyjazd'}}</div>
+                    </div></div>
+                </div>
+            </li>
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Osoba kontaktowa</div>
+                        <div  flex style="margin-left:10px" ng-if="$ctrl.history.contactPerson.surnameAndName">
+                            <div style="font-size:14px">
+                                <b>{{$ctrl.history.contactPerson.surnameAndName}}</b><person-type type="$ctrl.history.contactPerson.type" style="margin-left:6px"></person-type>
+                            </div>
+                            <div style="font-size:12px">
+                                <span ng-if="$ctrl.history.contactPerson.company.name">Firma: {{$ctrl.history.contactPerson.company.name}}, </span>  <span
+                                    ng-if="$ctrl.history.contactPerson.phone">Telefon: {{$ctrl.history.contactPerson.phone}}</span>
+                            </div>
+                        </div>
+                    <div ng-if="!$ctrl.history.contactPerson.surnameAndName">
+                        <b>Nie podano</b>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Komentarz</div>
+                    <div flex><div>{{$ctrl.history.comment?$ctrl.history.comment:'Nie podano'}}</div></div>
+                </div>
+            </li>
+        </ul>
+
+        <div id="vertical-timeline-person" class="vertical-container dark-timeline no-margins" ng-if="$ctrl.history.type ==='personGate'">
+            <div class="vertical-timeline-block">
+                <div class="vertical-timeline-icon navy-bg">
+                    <i class="fa fa-user"></i>
+                </div>
+
+                <div class="vertical-timeline-content">
+                    <h4>Osoba</h4>
+                    <ul class="list-group clear-list" style="margin-bottom: 0">
+                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Nazwisko Imię</div>
+                                <div flex><strong>{{$ctrl.history.person.surnameAndName}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Telefon</div>
+                                <div flex><strong>{{$ctrl.history.person.phone?$ctrl.history.person.phone:'Nie podano'}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Dokument</div>
+                                <div flex><strong>{{$ctrl.history.person.documentIdentifier}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Firma</div>
+                                <div flex><strong>{{$ctrl.history.person.company.name}}</strong></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="vertical-timeline-block" ng-if="$ctrl.history.items.length">
+                    <div class="vertical-timeline-icon lazur-bg">
+                        <i class="fa fa-laptop"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h4>Przedmioty</h4>
+                        <ul class="list-group list-unstyled" style="margin-bottom: 0">
+                            <li class="list-group-item" ng-repeat="item in $ctrl.history.items">
+                                <div layout="row" style="padding: 5px 5px 5px 0;">
+                                    <div flex="5">{{$index+1}}.</div>
+                                    <div>
+                                        <div>
+                                            <b> {{item.name}}</b><span>{{item.type}}</span>
+                                            <div>{{item.code}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="vertical-timeline" class="vertical-container dark-timeline no-margins" ng-if="$ctrl.history.type ==='transportGate'">>
+            <div class="vertical-timeline-block">
+                <div class="vertical-timeline-icon navy-bg">
+                    <i class="fa fa-user"></i>
+                </div>
+
+                <div class="vertical-timeline-content">
+                    <h4>Kierowca</h4>
+                    <ul class="list-group clear-list" style="margin-bottom: 0">
+                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Nazwisko Imię</div>
+                                <div flex><strong>{{$ctrl.history.transport.driver.surnameAndName}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Telefon</div>
+                                <div flex><strong>{{$ctrl.history.transport.driver.phone?$ctrl.history.transport.driver.phone:'Nie podano'}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Dokument</div>
+                                <div flex><strong>{{$ctrl.history.transport.driver.documentIdentifier}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Firma</div>
+                                <div flex><strong>{{$ctrl.history.transport.driver.company.name}}</strong></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="vertical-timeline-block">
+                <div class="vertical-timeline-icon blue-bg">
+                    <i class="fa fa-car"></i>
+                </div>
+
+                <div class="vertical-timeline-content">
+                    <h4>Pojazd</h4>
+                    <ul class="list-group clear-list" style="margin-bottom: 0">
+                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Pojazd</div>
+                                <div flex><strong>{{$ctrl.history.transport.vehicle.registration}}</strong></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px" ng-if="$ctrl.transport.trailer.registration">
+                            <div layout="row" style="margin-bottom: 5px">
+                                <div flex="25">Naczepa</div>
+                                <div flex><strong>{{$ctrl.history.transport.trailer.registration}}</strong></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vertical-timeline-block" ng-if="$ctrl.history.transport.passengers.length">
+                <div class="vertical-timeline-icon yellow-bg">
+                    <i class="fa fa-users"></i>
+                </div>
+
+                <div class="vertical-timeline-content">
+                    <h4>Pasażerowie</h4>
+                    <ul class="list-group clear-list" style="margin-bottom: 0">
+                        <li class="list-group-item" ng-repeat="passenger in $ctrl.history.transport.passengers">
+                            <div layout="row" style="padding: 5px 5px 5px 0;">
+                                <div flex="5">{{$index+1}}.</div>
+                                <div flex>
+                                    <div style="font-size:14px">
+                                        <b>{{passenger.surnameAndName}}</b>
+                                    </div>
+                                    <div style="font-size:12px">
+                                        <span ng-if="passenger.company.name">Firma: {{passenger.company.name}}, </span> <span
+                                            ng-if="passenger.phone">Telefon: {{passenger.phone}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="vertical-timeline-block" ng-if="$ctrl.history.transport.items.length">
+                <div class="vertical-timeline-icon lazur-bg">
+                    <i class="fa fa-laptop"></i>
+                </div>
+
+                <div class="vertical-timeline-content">
+                    <h4>Przedmioty</h4>
+                    <ul class="list-group list-unstyled" style="margin-bottom: 0">
+                        <li class="list-group-item" ng-repeat="item in $ctrl.history.transport.items">
+                            <div layout="row" style="padding: 5px 5px 5px 0;">
+                                <div flex="5">{{$index+1}}.</div>
+                                <div>
+                                    <div>
+                                        <b> {{item.name}}</b><span>{{item.type}}</span>
+                                        <div>{{item.code}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+

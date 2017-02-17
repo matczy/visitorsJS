@@ -1,0 +1,9 @@
+<form role="form" name="addPassengerForm" novalidate>
+
+    <person-field layout-padding person="$ctrl.person" surname_and_name_change="$ctrl.findPrompt({text:text})" form_name="addPassengerForm"></person-field>
+
+    <div layout="row" layout-padding style="padding: 0;">
+        <action-button title="Dodaj" color="btn-primary" size="normal" form_name="addPassengerForm" on-click="$ctrl.onAdd({data:{person:$ctrl.person,form:addPassengerForm}})"></action-button>
+        <action-button title="Zakoncz" color="btn-default"  size="normal" on-click="$ctrl.onCancel()"></action-button>
+    </div>
+</form>

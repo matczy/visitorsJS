@@ -1,0 +1,22 @@
+<div layout-padding="4" class="form-group my_has-feedback">
+    <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Osoba kontaktowa</label>
+    <div class="my-typehead-wrapper" ng-if="!$ctrl.disabled">
+
+        <select chosen ng-model="$ctrl.contactPerson"
+                ng-options="person as person.surnameAndName for person in $ctrl.persons"
+                data-placeholder="Osoba kontaktowa" class="form-control input-lg">
+            <option value="">Wybierz Osoba kontaktową</option>
+        </select>
+        <!--<img ng-if="$ctrl.showRecordIcon('contactPersonField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"-->
+             <!--ng-click="$ctrl.clickRecordIcon('surnameAndNameField',$ctrl.formName)" class="my_form-control-feedback"/>-->
+
+        <!--<img ng-if="!$ctrl.showRecordIcon('contactPersonField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}"-->
+             <!--ng-click="$ctrl.clickRecordIcon('contactPersonField',$ctrl.formName)" class="my_form-control-feedback"/>-->
+
+    </div>
+
+
+    <input  ng-if="$ctrl.disabled" ng-model="$ctrl.contactPerson.surnameAndName" type="text" placeholder="Osoba kontaktowa"
+               class="form-control input-lg">
+
+</div>

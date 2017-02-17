@@ -1,0 +1,30 @@
+
+<div layout-padding="4" ng-if="!$ctrl.disabled">
+    <div flex layout="column"  layout-wrap ng-if="!$ctrl.isActive"  class="well" style="min-height:44px; margin-top:12px;margin-bottom:0">
+        <item-list ng-if="$ctrl.currentItems.length" flex items="$ctrl.currentItems" style="margin-bottom: 4px"></item-list>
+
+        <div flex layout="row" layout-align="end center">
+            <div ng-if="!$ctrl.currentItems.length" flex style="font-size:15px; margin-right:14px">Nie dodano przedmiotów</div>
+
+            <button class="btn btn-default" style="margin-bottom: 0;padding-top:3px;padding-bottom: 3px;width:160px;height:28px"
+                    ng-click="$ctrl.editItemsList()"><i class="fa fa-laptop"></i>Dodaj przedmiot
+            </button>
+        </div>
+
+    </div>
+
+    <div flex ng-if="$ctrl.isActive" class="well" style="padding-top:0">
+        <div layout="row"  layout-wrap ng-if="$ctrl.currentItems.length>0">
+            <item-list items="$ctrl.currentItems" flex></item-list>
+        </div>
+            <add-item-form item="$ctrl.newItem"
+                           types="$ctrl.types"
+                           on_add="$ctrl.addItemToList(data)"
+                           on_cancel="$ctrl.cancelAddItemToList()"
+                           find_prompt="$ctrl.findItemPrompt(text)">
+            </add-item-form>
+
+    </div>
+
+</div>
+

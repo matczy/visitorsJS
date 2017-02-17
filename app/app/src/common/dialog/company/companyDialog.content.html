@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="modal-header">
+        <h3 class="modal-title">Utwórz firmę</h3>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div layout="column">
+                <div class="alert alert-danger" role="alert" ng-if="$ctrl.errorMessage">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    {{$ctrl.errorMessage}}
+                </div>
+                <label>Nazwa</label>
+                <div class="my-typehead-wrapper">
+                    <input type="text"
+                           ng-model="$ctrl.resolve.company.name" placeholder="firma"
+                           uib-typeahead="company.name as company.name for company in $ctrl.companies | filter:$viewValue"
+                           typeahead-min-length="0" class="form-control input-lg m-b">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$ctrl.ok($ctrl.resolve.company)">
+            Zapisz
+        </button>
+        <button class="btn btn-default" ng-click="$ctrl.cancel()">
+            Zamknij
+        </button>
+
+    </div>
+</div>
+
+
+

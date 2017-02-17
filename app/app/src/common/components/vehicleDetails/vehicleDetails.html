@@ -1,0 +1,79 @@
+<div>
+    <div class="client-detail">
+        <div layout="row" style="font-weight: 700;margin-bottom: 12px" layout-align="center center">
+            <div style="font-size:24px;font-weight: 700">Pojazd: {{$ctrl.vehicle.registration}}</div>
+            <div flex style="margin-left:20px">
+                <vehicle-type type="$ctrl.vehicle._id"></vehicle-type>
+            </div>
+            <div  class="pull-right">
+                <button class="btn btn-default" ng-click="$ctrl.onEditAction()">Edytuj</button>
+            </div>
+        </div>
+        <ul class="list-group clear-list" style="margin-left:4px">
+            <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Status</div>
+                    <div flex><strong ng-class="$ctrl.vehicle.isOnObject?'green-text':'red-text'">{{$ctrl.vehicle.isOnObject?'Na obiekcie':'Poza obiektem'}}</strong></div>
+                </div>
+            </li>
+
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Data utworzenia</div>
+                    <div flex><strong>{{$ctrl.vehicle.createdDate |date:'yy-MM-dd HH:mm'}}</strong></div>
+                </div>
+            </li>
+        </ul>
+
+        <div id="vertical-timeline" class="vertical-container dark-timeline no-margins">
+            <div class="vertical-timeline-block">
+                <div class="vertical-timeline-icon blue-bg">
+                    <i class="fa fa-calendar"></i>
+                </div>
+
+                <div class="vertical-timeline-content">
+                    <h4>Ostatnia wizyta</h4>
+                    <div layout="row" style="margin-bottom: 5px">
+                        <div flex>Wejście:
+                            <span><strong>{{$ctrl.vehicle.lastEntry |date:'yy-MM-dd HH:mm'}}</strong></span></div>
+                        <div flex>Wyjście: <span flex ng-if="$ctrl.vehicle.lastExit"><strong>{{$ctrl.vehicle.lastExit |date:'yy-MM-dd HH:mm'}}</strong></span>
+                            <span ng-if="!$ctrl.vehicle.lastExit"
+                                  class="green-text"><strong>Na obiekcie</strong></span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="vertical-timeline-block" ng-if="$ctrl.vehicle.usedBy.length">
+                <div class="vertical-timeline-icon lazur-bg">
+                    <i class="fa fa-users"></i>
+                </div>
+
+                <div class="vertical-timeline-content my-table" >
+                    <h4>Użytkowane przez</h4>
+                    <ul class="list-group list-unstyled" style="margin-bottom: 0">
+                        <li class=list-group-item" ng-repeat="usedBy in $ctrl.vehicle.usedBy" >
+                            <div layout="row" style="padding: 5px 5px 5px 0;">
+                                <div flex="5">{{$index+1}}.</div>
+                                <div flex><strong>{{usedBy}}</strong></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<div layout-padding="4" ng-if="!$ctrl.disabled" style="margin-bottom: 13px">
+
+    <div flex layout="column" layout-wrap ng-if="!$ctrl.isActive" class="well"
+         style="min-height:44px; margin-top:21px;margin-bottom:17px">
+        <passenger-list ng-if="$ctrl.currentPassengers.length" flex passengers="$ctrl.currentPassengers"
+                        style="margin-bottom: 4px"></passenger-list>
+
+        <div flex layout="row" layout-align="end center">
+
+            <div ng-if="!$ctrl.currentPassengers.length" flex style="font-size:15px; margin-right:14px">Nie dodano
+                pasażerów
+            </div>
+            <button class="btn btn-default"
+                    style="margin-bottom: 0;padding-top:3px;padding-bottom: 3px;width:160px;height:28px"
+                    ng-click="$ctrl.editPassengersList()"><i class="fa fa-user-plus"></i>Dodaj pasażera
+            </button>
+        </div>
+
+    </div>
+
+    <div flex ng-if="$ctrl.isActive" class="well" style="padding-top:0">
+
+        <div ng-if="$ctrl.newPerson.isOnBlackList || $ctrl.newPerson.company.isOnBlackList" class="alert alert-danger">
+            <div ng-if="$ctrl.newPerson.isOnBlackList"> Wybrana osoba znajduje sie na czarnej liście.</div>
+            <div ng-if="$ctrl.newPerson.company.isOnBlackList">Wybrana firma znajduje sie na czarnej liście</div>
+        </div>
+        <div layout="row" layout-wrap ng-if="$ctrl.currentPassengers.length>0">
+            <passenger-list passengers="$ctrl.currentPassengers" flex></passenger-list>
+        </div>
+        <!--<form role="form" name="addPassengerForm" novalidate>-->
+
+            <add-passenger-form test="addPassengerForm" form_name="addPassengerForm"
+                                person="$ctrl.newPerson"
+                                on_add="$ctrl.addPersonToList(data)"
+                                on_cancel="$ctrl.cancelAddPersonToList()"
+                                find_prompt="$ctrl.sendSurnameAndNameChangeEvent(text)">
+            </add-passenger-form>
+        <!--</form>-->
+    </div>
+
+</div>
+

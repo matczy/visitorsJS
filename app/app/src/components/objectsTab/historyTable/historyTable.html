@@ -1,0 +1,66 @@
+
+<div flex>
+    <div layout="row" layout-align="center center" style="margin-bottom: 15px">
+        <div flex>
+            <div class="btn-group" style="margin-right: 20px">
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change ="$ctrl.filterData()" uib-btn-radio="'all'" > Wszystkie ({{$ctrl.currentObjects.length}})</label>
+
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType"  ng-change ="$ctrl.filterData()" uib-btn-radio="'personGate'">Ruch osobowy</label>
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType"  ng-change ="$ctrl.filterData()" uib-btn-radio="'transportGate'" >Ruch kołowy</label>
+            </div>
+        </div>
+        <div flex="10" class="ibox-tools" style="margin-right:10px">
+        </div>
+    </div>
+
+    <section style="padding-top:20px;padding-bottom:30px;border-top: 1px solid #e5e6e7; border-bottom: 1px solid #e5e6e7" >
+        <div layout="row" >
+            <div flex layout="row">
+                <mdp-date-picker mdp-placeholder="Data od" ng-model="$ctrl.dateFrom"></mdp-date-picker>
+                <mdp-time-picker mdp-placeholder="Czas od" ng-model="$ctrl.dateFrom" ></mdp-time-picker>
+            </div>
+            <div flex layout="row">
+                <mdp-date-picker mdp-placeholder="Data do" ng-model="$ctrl.dateTo"></mdp-date-picker>
+                <mdp-time-picker mdp-placeholder="Czas do" ng-model="$ctrl.dateTo"  ></mdp-time-picker>
+            </div>
+        </div>
+
+        <div layout="row" style="padding-left:8px;padding-right:8px">
+            <input flex type="text" placeholder=" Wyszukaj ... " class="input form-control" ng-model="$ctrl.searchText" style="margin-right:20px">
+            <action-button flex = "15" on-click="$ctrl.filterDataByTextAndDate()" title="Wyszukaj" color="btn-primary"></action-button>
+        </div>
+
+
+    </section>
+
+
+    <div style="height:600px!important;margin-top:20px">
+
+        <div class="my-table" full-scroll>
+
+            <div layout="row" style="padding-top:8px;padding-bottom:8px;font-size:14px">
+                <div flex="15" style="margin-left:10px">Typ</div>
+                <div flex="10">Akcja</div>
+                <div flex>Obiekt</div>
+                <div flex="15"> Data utworzenia</div>
+                <div flex="15" style="margin-right:10px"></div>
+            </div>
+            <div>
+                <ul class="list-group list-unstyled">
+                    <li class=list-group-item" ng-repeat="elem in $ctrl.currentObjects">
+                        <history_row flex history="elem" on_action="$ctrl.showDetails({object:elem})" on_action_title="Szczegóły" show_created_date="true" show_last_entry="false"></history_row>
+                    </li>
+                    <li>
+                        <div ng-if="$ctrl.currentObjects.length==0" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                            <div >Brak histori do wyświetlenia</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>

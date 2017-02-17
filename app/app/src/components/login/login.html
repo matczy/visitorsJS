@@ -1,0 +1,29 @@
+<div class="loginColumns animated fadeInDown">
+    <div layout="row">
+
+        <div flex="50">
+            <div class="ibox-content">
+                <div class="alert alert-danger" data-ng-show="$ctrl.authenticationError">
+                    {{$ctrl.authenticationError}}
+                </div>
+                <form class="m-t" class="form" role="form" data-ng-submit="$ctrl.login($event,$ctrl.credentials)">
+                    <div class="form-group">
+                        <input type="text" id="username" class="form-control" placeholder="Login"
+                               data-ng-model="$ctrl.credentials.username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" class="form-control" placeholder="Hasło"
+                               data-ng-model="$ctrl.credentials.password">
+                    </div>
+                    <button type="submit" ng-disabled="(!!!$ctrl.credentials.username && !!!$ctrl.credentials.password)" class="btn btn-primary block full-width m-b">Zaloguj</button>
+                </form>
+                <!--<div class="alert alert-warning">-->
+                    <!--<a class="alert-link" ui-sref="forgotPassword">{{'login.form.forgetPassword' | translate}}</a>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

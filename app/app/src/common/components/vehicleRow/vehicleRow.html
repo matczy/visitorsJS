@@ -1,0 +1,21 @@
+
+
+<div layout="row" style="padding-top:8px;padding-bottom:8px;"  layout-align="center center">
+
+    <div  flex="15" style="margin-left:10px">  <span class="label label-default">Pojazd</span></div>
+
+    <div  flex >
+        <div style="font-size:14px">
+            <b>{{$ctrl.vehicle.registration}}</b>
+        </div>
+    </div>
+
+    <div  flex="15" ng-if="$ctrl.showCreatedDate"> {{$ctrl.vehicle.createdDate|date:'yy-MM-dd HH:mm'}}</div>
+    <div  flex="15" ng-if="$ctrl.showLastEntry"> {{$ctrl.vehicle.lastEntry|date:'yy-MM-dd HH:mm'}}</div>
+
+    <div flex="15" style="margin-right:10px;text-align: right">
+        <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.vehicle})">{{$ctrl.onActionTitle}}</button>
+    </div>
+</div>
+
+

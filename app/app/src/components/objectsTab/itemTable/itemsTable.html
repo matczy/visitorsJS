@@ -1,0 +1,63 @@
+<div flex>
+    <div layout="row" layout-align="center center" style="margin-bottom: 15px">
+        <div layout="row" layout-align="end start" style="margin-bottom: 10px;margin-right:10px">
+            <!--<span class="label label-warning-light pull-right">{{$ctrl.currentObjects.length}} przedmiotów</span>-->
+        </div>
+        <div flex>
+            <div class="btn-group" style="margin-right: 20px">
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'all'">Wszystkie ({{$ctrl.currentObjects.length}})</label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'laptops'">Laptopy</label>
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'cameras'">Kamery</label>
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'others'">Inne</label>
+            </div>
+        </div>
+        <div flex="15" class="ibox-tools" style="margin-right:10px">
+            <span> <action-button on-click="$ctrl.openCreateItemDialog()" title="Utwórz" color="btn-default" size="sm" icon="fa fa-plus"></action-button></span>
+        </div>
+    </div>
+
+    <div style="margin-bottom:20px;margin-right:10px">
+
+        <div flex class="input-group">
+            <input type="text" placeholder=" Wyszukaj ... " class="input form-control" ng-model="$ctrl.searchText">
+            <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"> <i class="fa fa-search" style="padding:0"></i> </button>
+                </span>
+
+        </div>
+    </div>
+
+
+    <div class="my-table">
+        <div layout="row" layout-align="space-between center">
+
+        </div>
+        <div layout="row" style="padding-top:8px;padding-bottom:8px;font-size:14px">
+            <div flex="10" style="margin-left:10px">Typ</div>
+            <div flex>Przedmiot</div>
+            <div flex="15"> Data utworzenia</div>
+            <div flex="15" style="margin-right:10px"></div>
+        </div>
+        <ul class="list-group list-unstyled">
+
+            <li class=list-group-item" ng-repeat="elem in $ctrl.currentObjects|filter:$ctrl.searchText">
+                <item_row flex item="elem" on_action="$ctrl.showDetails({object:elem})" on_action_title="Szczegóły"  show_created_date="true" show_last_entry="false"></item_row>
+            </li>
+            <li>
+                <div ng-if="$ctrl.currentObjects.length==0" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                    <div > Brak przedmiotów do wyświetlenia</div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+
+    <!--</div>-->
+</div>

@@ -1,0 +1,50 @@
+
+<div id="right-sidebar" class="sidebar-open" ng-if="$ctrl.isShowedRightSidebar">
+    <div class="sidebar-container" full-scroll style="background-color: #F5F5F5">
+
+        <ul class="nav nav-tabs navs-2">
+
+            <li ng-class="{active: $ctrl.tabs.tab1}"><a  ng-click="$ctrl.tabs.tab1 = true; $ctrl.tabs.tab2 = false;">
+                Historia
+            </a></li>
+            <li ng-class="{active: $ctrl.tabs.tab2}"><a ng-click="$ctrl.tabs.tab2 = true; $ctrl.tabs.tab1 = false;">
+                Podpowiedzi
+            </a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane" ng-class="{active: $ctrl.tabs.tab2}" style="background-color: #F5F5F5">
+                <div class="sidebar-title">
+                    <h3><i class="fa fa-comments-o"></i> Podpowiedzi</h3>
+                    <small><i class="fa fa-tim"></i> Masz {{$ctrl.promptCount}}</small>
+                </div>
+                <div >
+                    <div ng-repeat="prompt in $ctrl.prompts"  ng-if="$ctrl.isPersonPrompt()" style="margin: 5px 5px 8px;">
+                        <person-prompt person = "prompt" type="$ctrl.contentType" on-action="$ctrl.choosePrompt(data)"></person-prompt>
+                    </div>
+
+                    <div ng-repeat="prompt in $ctrl.prompts" ng-if="$ctrl.isItemPrompt()" style="margin: 5px 5px 8px;">
+                        <item-prompt item = "prompt" on-action="$ctrl.choosePrompt(data)"></item-prompt>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane" ng-class="{active: $ctrl.tabs.tab1}" style="background-color: #F5F5F5">
+                <div class="sidebar-title">
+                    <h3><i class="fa fa-comments-o"></i> Historia</h3>
+                </div>
+                <div >
+                    <div ng-repeat="gateAction in $ctrl.lastGateActionHistory"  style="border-bottom: 1px solid #F5F5F5;margin: 5px 5px 8px;">
+                        <registration_history gate_action = "gateAction"></registration_history>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,35 @@
+<div layout="row" layout-align="center center" style="padding-top:8px;padding-bottom:8px;">
+    <div flex="15" style="margin-left:10px">
+        <gate-type type="$ctrl.history.type"></gate-type>
+    </div>
+
+    <div flex="10" ng-if="$ctrl.history.type ==='personGate'" ng-class="$ctrl.history.action.type==='Entry'?'green-text':'red-text'">{{$ctrl.history.action.type==='Entry'?'Wejście':'Wyjście'}}</div>
+    <div flex="10" ng-if="$ctrl.history.type ==='transportGate'" ng-class="$ctrl.history.action.type==='Entry'?'green-text':'red-text'">{{$ctrl.history.action.type==='Entry'?'Wjazd':'Wyjazd'}}</div>
+
+    <div flex>
+                <div ng-if="$ctrl.history.transport">
+                    <div> <b style="font-size:14px">{{$ctrl.history.transport.driver.surnameAndName}}</b>, {{$ctrl.gateAction.transport.driver.company._id?$ctrl.gateAction.transport.driver.company.name:'Brak firmy'}}</div>
+                    <div> <b style="font-size:14px">{{$ctrl.history.transport.vehicle.registration}}</b></div>
+                </div>
+                <div ng-if="$ctrl.history.person">
+                    <div  >
+                        <div style="font-size:14px">
+                            <b>{{$ctrl.history.person.surnameAndName}}</b><person-type type="$ctrl.history.person.type" style="margin-left:6px"></person-type>
+                        </div>
+                        <div style="font-size:12px">
+                            <span ng-if="$ctrl.history.person.company.name">Firma: {{$ctrl.history.person.company.name}}, </span>  <span
+                                ng-if="$ctrl.history.person.phone">Telefon: {{$ctrl.history.person.phone| phoneFilter}}</span>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+    <div flex="15"  ng-if="$ctrl.showCreatedDate">{{$ctrl.history.action.date |date:'yy-MM-dd HH:mm'}}</div>
+
+    <div flex="15" style="margin-right:10px;text-align: right">
+        <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.transport})">{{$ctrl.onActionTitle}}</button>
+    </div>
+</div>
+
+
+

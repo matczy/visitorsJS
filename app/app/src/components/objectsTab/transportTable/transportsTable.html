@@ -1,0 +1,52 @@
+<div flex >
+    <div layout="row" layout-align="center center" style="margin-bottom: 15px">
+        <div flex>
+
+        </div>
+        <div flex="10" class="ibox-tools" style="margin-right:10px">
+            <span class="label label-warning-light pull-right">{{$ctrl.currentObjects.length}} transportów</span>
+        </div>
+    </div>
+
+    <div style="margin-bottom:20px;margin-right:10px">
+
+        <div flex class="input-group">
+            <input type="text" placeholder=" Wyszukaj ... " class="input form-control" ng-model="$ctrl.searchText">
+            <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"> <i class="fa fa-search" style="padding:0"></i> </button>
+            </span>
+
+        </div>
+    </div>
+    <div style="height:600px!important">
+        <div class="my-table" full-scroll>
+
+            <div layout="row" style="padding-top:8px;padding-bottom:8px;font-size:14px">
+                <div flex style="margin-left:10px">Kierowca</div>
+                <div flex="15">Pojazd</div>
+                <div flex="15">Naczepa</div>
+                <div flex="15"> Data utworzenia</div>
+                <div flex="15" style="margin-right:10px"></div>
+            </div>
+            <div>
+                <ul class="list-group list-unstyled">
+                    <li class=list-group-item" ng-repeat="elem in $ctrl.currentObjects|filter:$ctrl.searchText">
+                        <transport_row flex transport="elem" on_action="$ctrl.showDetails({object:elem})" on_action_title="Szczegóły" show_created_date="true" show_last_entry="false"></transport_row>
+                    </li>
+
+                    <li>
+                        <div ng-if="$ctrl.currentObjects.length==0" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                            <div >                               Brak transportów do wyświetlenia
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--</div>-->
+</div>

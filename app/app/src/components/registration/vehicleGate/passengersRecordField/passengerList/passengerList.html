@@ -1,0 +1,7 @@
+<div layout="column" layout-wrap flex  style="background-color: white;margin-top:4px;">
+    <div ng-repeat="passenger in $ctrl.passengers" class="feed-activity-list" flex >
+        <passenger person="passenger" remove = "$ctrl.removeFromPassengersList(person)" disabled="$ctrl.disabled"></passenger>
+    </div>
+</div>
+
+

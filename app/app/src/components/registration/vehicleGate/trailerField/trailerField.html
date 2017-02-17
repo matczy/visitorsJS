@@ -1,0 +1,44 @@
+<div layout-padding="4" ng-if="!$ctrl.disabled" class="form-group my_has-feedback">
+        <div flex ng-if="$ctrl.isActive" style="padding-top:8;padding-right:0;padding-left:0">
+            <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Naczepa</label>
+            <div class="my-typehead-wrapper">
+                <input type="text" ng-change="$ctrl.changeTrailerRegistration($ctrl.trailerRegistration)"
+                       ng-model="$ctrl.trailerRegistration" placeholder="Nr. Rjestracyjny"
+                       uib-typeahead="trailer.registration as trailer.registration for trailer in $ctrl.trailers | filter:$viewValue"
+                       typeahead-min-length="0" class="form-control input-lg m-b" style="margin-bottom: 0">
+
+                <img ng-if="$ctrl.online && $ctrl.showRecordIcon('trailerField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"
+                     ng-click="$ctrl.clickRecordIcon('trailerField',$ctrl.formName)" class="my_form-control-feedback"/>
+
+                <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('trailerField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}" ng-click="$ctrl.clickRecordIcon('trailerField',$ctrl.formName)" class="my_form-control-feedback"/>
+
+            </div>
+
+        </div>
+
+
+    <div flex layout="row"  ng-if="!$ctrl.isActive" class="well"  style="min-height:44px; margin-top:28px;margin-bottom:10px;">
+        <div flex  style="font-size:15px; margin-right:14px">Nie dodano naczepy</div>
+        <button class="btn btn-default" style="margin-bottom: 0;padding-top:3px;padding-bottom: 3px;width:160px" ng-click="$ctrl.editTrailer()"><i class="fa fa-truck "></i>Dodaj naczepę</button>
+    </div>
+
+</div>
+
+
+<div layout-padding="4" ng-if="$ctrl.disabled" style="padding-top: 0;" class="form-group my_has-feedback">
+    <div flex style="padding-top:0;padding-right:0;padding-left:0">
+        <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Naczepa</label>
+        <div class="my-typehead-wrapper">
+            <input type="text" ng-disabled="true"
+                   ng-model="$ctrl.trailerRegistration" placeholder="Nr. Rjestracyjny"
+                   uib-typeahead="trailer.registration as trailer.registration for trailer in $ctrl.trailers | filter:$viewValue"
+                   typeahead-min-length="0" class="form-control input-lg m-b" style="margin-bottom: 0">
+            <img ng-if="$ctrl.online && $ctrl.showRecordIcon('trailerField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"
+                 ng-click="$ctrl.clickRecordIcon('trailerField',$ctrl.formName)" class="my_form-control-feedback"/>
+
+            <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('trailerField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}" ng-click="$ctrl.clickRecordIcon('trailerField',$ctrl.formName)" class="my_form-control-feedback"/>
+
+        </div>
+
+    </div>
+</div>

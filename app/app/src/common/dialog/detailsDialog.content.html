@@ -1,0 +1,26 @@
+
+<div class="card">
+    <div class="modal-header">
+        <h3 class="modal-title" ng-if="$ctrl.isTransport($ctrl.resolve.gateAction.type)" >Transport : {{$ctrl.resolve.gateAction.action.type=='Entry'?'Wjazd':'Wyjazd'}} {{$ctrl.resolve.gateAction.action.date| date:'yy-MM-dd HH:mm'}} </h3>
+        <h3 class="modal-title" ng-if="$ctrl.isPerson($ctrl.resolve.gateAction.type)">Osoba : {{$ctrl.resolve.gateAction.action.type=='Entry'?'Wejście':'Wyjście'}} {{$ctrl.resolve.gateAction.action.date| date:'yy-MM-dd HH:mm'}} </h3>
+
+    </div>
+    <div class="modal-body">
+        <div>
+            <div layout="row">
+                <history_details history = "$ctrl.resolve.gateAction" title="" flex></history_details>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+
+        <button class="btn btn-default" ng-click="$ctrl.cancel()">
+            Zamknij
+        </button>
+
+    </div>
+</div>
+
+

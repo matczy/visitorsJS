@@ -1,0 +1,65 @@
+<div class="tabs-container" style="margin-left:330px">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div layout="row" layout-align="space-between center">
+
+            <div class="ibox float-e-margins" flex="100">
+
+                <div class="ibox-content" style=" border-style: solid solid none; border-width: 3px 0 0;padding-top:0">
+                    <form role="form" name="recordTransport" novalidate>
+                        <div layout="row">
+                            <div layout="column" flex="50" style="padding-top:0">
+                                <div ng-if="$ctrl.transport.driver.isOnBlackList || $ctrl.transport.driver.isOnBlackList" class="alert alert-danger" style="margin-top:12px">
+                                    <div ng-if="$ctrl.transport.driver.isOnBlackList"> Wybrana osoba znajduje sie na czarnej liście.</div>
+                                    <div ng-if="$ctrl.transport.driver.company.isOnBlackList">Wybrana firma znajduje sie na czarnej liście</div>
+                                </div>
+
+                                <person-field person="$ctrl.transport.driver" companies="$ctrl.companies"
+                                              surname_and_name_change="$ctrl.sendSurnameAndNameChangeEvent(text)" form_name = "recordTransport" style="padding-bottom: 0">
+                                </person-field>
+
+                                <registration_vehicle_field vehicle-registration="$ctrl.transport.vehicle.registration"
+                                                            vehicles="$ctrl.vehicles" style="padding-top:0; padding-bottom: 0" form_name = "recordTransport"></registration_vehicle_field>
+
+
+
+                                <div layout="row" layout-padding style="padding-right:0;padding-left:0">
+                                    <action-button on-click="$ctrl.entryAction()" title="Wjazd" color="btn-primary"
+                                                   size="lg" form_name = "recordTransport"
+                                                   flex></action-button>
+                                    <span style="width:20px"></span>
+
+                                    <action-button on-click="$ctrl.exitAction()" title="Wyjazd" color="btn-danger"
+                                                   size="lg" form_name = "recordTransport"
+                                                   flex></action-button>
+                                </div>
+
+                            </div>
+
+
+                            <div layout="column" flex  style="padding-top:0">
+                                <contact-person-field contact-person="$ctrl.contactPerson"
+                                                      persons="$ctrl.contactPersons" form_name = "recordTransport" ></contact-person-field>
+
+                                <trailer-field trailer-registration="$ctrl.transport.trailer.registration"
+                                               trailers="$ctrl.trailers" form_name = "recordTransport"></trailer-field>
+
+                                <passengers-record-field passengers="$ctrl.transport.passengers" on_close="$ctrl.setPassengers(passengers)"></passengers-record-field>
+
+                                <items-record-field items="$ctrl.transport.items" on_close="$ctrl.setItems(items)"></items-record-field>
+
+                                <add_comment comment="$ctrl.comment" form_name = "recordTransport" style="padding-top:14px"></add_comment>
+
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

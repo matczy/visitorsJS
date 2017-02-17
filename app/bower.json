@@ -1,0 +1,38 @@
+{
+  "name": "angular-webpack-seed",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    "Dachu"
+  ],
+  "description": "",
+  "main": "src/index.html",
+  "private": true,
+  "dependencies": {
+    "angular": "latest",
+    "angular-mocks": "latest",
+    "angular-ui-router": "latest",
+    "angular-foundation": "latest",
+    "angular-material": "latest",
+    "foundation": "latest",
+    "angular-animate": "latest",
+    "bootstrap": "latest",
+    "angular-bootstrap": "latest",
+    "font-awesome": "latest",
+    "angularjs": "latest",
+    "restangular": "latest",
+    "lodash": "latest",
+    "angular-translate": "latest",
+    "angular-chosen-localytics": "latest",
+    "jquery-slimscroll": "latest",
+    "angular-pouchdb": "^4.3.0",
+    "angular-toastr": "latest",
+    "angular-datepicker": "^2.0.3",
+    "moment": "^2.14.1",
+    "angular-moment": "^0.10.3"
+  },
+  "resolutions": {
+    "angular": "latest",
+    "angular-animate": "latest"
+  }
+}

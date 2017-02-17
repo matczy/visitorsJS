@@ -1,0 +1,30 @@
+<div>
+    <div class="client-detail">
+        <div layout="row" style="font-weight: 700;margin-bottom: 8px" layout-align="left center">
+            <div style="font-size:24px;font-weight: 700">Edycja</div>
+        </div>
+
+        <person-field person="$ctrl.person" companies="$ctrl.companies"></person-field>
+        <div layout-padding="4" style="padding-top:0">
+            <label>Typ</label>
+            <div class="my-typehead-wrapper" >
+                <select chosen ng-model="$ctrl.person.type"
+                        ng-options="type  for type in $ctrl.types"
+                        data-placeholder="Typ" class="form-control input-lg">
+                    <option value="">Wybierz typ</option>
+                </select>
+
+            </div>
+        </div>
+        <div layout-padding="4">
+            <label>Dodaj do czarnej listy</label>
+            <md-switch ng-model="$ctrl.person.isOnBlackList"  aria-label="Czrna lista" style="margin:0">{{$ctrl.person.isOnBlackList?"Tak":"Nie"}}</md-switch>
+        </div>
+
+        <div layout="row" layout-padding>
+            <action-button on-click="$ctrl.onEditAction({person:object})" title="Edytuj" color="btn-primary" size="sm"
+                           style="margin-right:10px"></action-button>
+            <action-button on-click="$ctrl.exitEditMode()" title="Anuluj" color="btn-default" size="sm"></action-button>
+        </div>
+    </div>
+</div>

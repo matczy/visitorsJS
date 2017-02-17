@@ -1,0 +1,56 @@
+<div layout="row" layout-padding style="margin-top: 20px;">
+    <div class="tabs-container" flex="60" style="height: 100%">
+
+        <uib-tabset>
+            <uib-tab heading="Osoby" ng-click="$ctrl.changeTab()">
+                <div class="panel-body" layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <persons-table persons="$ctrl.persons" show_details="$ctrl.showDetails(object)"></persons-table>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Pojazdy"  ng-click="$ctrl.changeTab()">
+                <div class="panel-body"  layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <vehicles-table vehicles="$ctrl.vehicles" trailers="$ctrl.trailers" show_details="$ctrl.showDetails(object)"></vehicles-table>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Firmy"  ng-click="$ctrl.changeTab()">
+                <div class="panel-body"  layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <companies_table companies="$ctrl.companies" persons="$ctrl.persons" show_details="$ctrl.showDetails(object)"></companies_table>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Transporty"  ng-click="$ctrl.changeTab()">
+                <div class="panel-body"  layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <transports-table transports="$ctrl.transports"  show_details="$ctrl.showDetails(object)"></transports-table>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Przedmioty"  ng-click="$ctrl.changeTab()">
+                <div class="panel-body"  layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <items_table items="$ctrl.items"  show_details="$ctrl.showDetails(object)"></items_table>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Historia"  ng-click="$ctrl.changeTab()">
+                <div class="panel-body"  layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <histories_table history="$ctrl.histories"  show_details="$ctrl.showDetails(object)"></histories_table>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+
+    </div>
+
+   <right-panel flex object="$ctrl.objectDetails" is_edited_mode = "$ctrl.isEditedRightPanel" persons="$ctrl.persons" companies="$ctrl.companies" style="height: 100%"></right-panel>
+
+
+
+</div>
+

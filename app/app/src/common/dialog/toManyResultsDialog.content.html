@@ -1,0 +1,42 @@
+
+<div class="card">
+    <div layout="row" layout-align="start center" ></div>
+
+    <div class="modal-header">
+        <h3 class="modal-title">{{$ctrl.title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div style="font-size:15px" ng-if="$ctrl.resolve.type=='TO_MANY_RESULTS_COMPANY'">
+           W aplikacji znajdują się firmy o tej samej nazwie - proszę o usuniecie duplikatów
+            <ul class="list-group clear-list">
+                <li ng-repeat="item in $ctrl.resolve.data" class="list-group-item fist-item">
+                    <md-checkbox ng-checked="$ctrl.isChecked(item.doc,$ctrl.selected)" ng-click="$ctrl.toggle(item.doc, $ctrl.selected)">
+                        {{item.doc.name}}
+                    </md-checkbox>
+                </li>
+            </ul>
+        </div>
+
+        <div style="font-size:15px" ng-if="$ctrl.resolve.type=='TO_MANY_RESULTS_PERSON' || $ctrl.resolve.type=='TO_MANY_RESULTS_VEHICLE'">
+           <div ng-if="$ctrl.resolve.type=='TO_MANY_RESULTS_PERSON'"> W aplikacji znajdują się osoby o tym samym imieniu, nazwisku oraz identyfikatorze - proszę o usuniecie duplikatów</div>
+            <div ng-if="$ctrl.resolve.type=='TO_MANY_RESULTS_VEHICLE'"> W aplikacji znajdują się pojazdy o tej samej rejestracji - proszę o usuniecie duplikatów</div>
+            <ul class="list-group clear-list">
+                <li ng-repeat="item in $ctrl.resolve.data" class="list-group-item fist-item">
+                    <md-checkbox ng-checked="$ctrl.isChecked(item.doc,$ctrl.selected)" ng-click="$ctrl.toggle(item.doc, $ctrl.selected)">
+                        <person-or-vehicle-row object="item.doc"></person-or-vehicle-row>
+                    </md-checkbox>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$ctrl.ok($ctrl.resolve.data)" >
+            Usun zaznaczone duplikaty
+        </button>
+        <button class="btn btn-default" ng-click="$ctrl.cancel()">
+            Anuluj
+        </button>
+
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div flex >
+    <div layout="row" layout-align="end start" style="margin-bottom: 10px;margin-right:10px">
+    </div>
+    <div layout="row" layout-align="center center" style="margin-bottom: 15px">
+        <div flex>
+            <div class="btn-group" style="margin-right: 20px">
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'all'">Wszyscy ({{$ctrl.currentPersons.length}})</label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'guests'">Goście</label>
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'workers'">Pracownicy</label>
+                <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
+                       uib-btn-radio="'blackList'">Czarna lista</label>
+            </div>
+        </div>
+        <div flex="15" class="ibox-tools" style="margin-right:10px" layout="row">
+            <span> <action-button on-click="$ctrl.openCreatePersonDialog()" title="Utwórz" color="btn-default" size="sm" icon="fa fa-plus"></action-button></span>
+        </div>
+    </div>
+
+    <div style="margin-bottom:20px;margin-right:10px">
+
+        <div flex class="input-group">
+            <input type="text" placeholder=" Wyszukaj ... " class="input form-control" ng-model="$ctrl.searchText">
+            <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"> <i class="fa fa-search"
+                                                                      style="padding:0"></i> </button>
+                </span>
+
+        </div>
+    </div>
+    <div style="height:600px!important">
+        <div class="my-table" full-scroll>
+
+            <div layout="row" style="padding-top:8px;padding-bottom:8px;font-size:14px">
+                <div flex="15" style="margin-left:10px">Typ</div>
+                <div flex>Osoba</div>
+                <div flex="15">Telefon</div>
+                <div flex="15">Data utworzenia</div>
+                <div flex="20" style="margin-right:10px"></div>
+            </div>
+            <div>
+                <ul class="list-group list-unstyled">
+
+                    <li class=list-group-item" ng-repeat="elem in $ctrl.currentPersons|filter:$ctrl.searchText">
+                        <person_row flex person="elem" on_action="$ctrl.showDetails({object:elem})" on_action_title="Szczegóły"
+                                    show_created_date="true" show_last_entry="false"></person_row>
+                    </li>
+                    <li>
+                        <div ng-if="$ctrl.currentPersons.length==0" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                            <div >                             Brak osób do wyświetlenia
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--</div>-->
+</div>

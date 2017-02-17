@@ -1,0 +1,35 @@
+<div flex class="ibox" style="margin-top:40px; margin-right:10px;height: 100%" >
+    <div class="ibox-content" ng-if="$ctrl.object._id" style="height: 100%">
+        <div class="tab-content" ng-if="$ctrl.isPersonObject()">
+            <person_details person = "$ctrl.object" on_edit_action="$ctrl.goToEditMode()" ng-if="!$ctrl.isEditedMode"></person_details>
+            <person_edit person = "$ctrl.object"  companies="$ctrl.companies"  exit_edit_mode ="$ctrl.exitEditMode()" on_edit_action="$ctrl.editedPerson($ctrl.object)" ng-if="$ctrl.isEditedMode"></person_edit>
+        </div>
+        <div class="tab-content" ng-if="$ctrl.isVehicleObject()">
+            <vehicle_details vehicle = "$ctrl.object" on_edit_action="$ctrl.goToEditMode()" ng-if="!$ctrl.isEditedMode"></vehicle_details>
+            <vehicle_edit vehicle = "$ctrl.object"   exit_edit_mode ="$ctrl.exitEditMode()" on_edit_action="$ctrl.editedVehicle($ctrl.object)" ng-if="$ctrl.isEditedMode"></vehicle_edit>
+
+        </div>
+
+        <div class="tab-content" ng-if="$ctrl.isCompanyObject()">
+            <company_details company = "$ctrl.object" workers = "$ctrl.workers" on_edit_action="$ctrl.goToEditMode()" ng-if="!$ctrl.isEditedMode"></company_details>
+            <company_edit company = "$ctrl.object" companies="$ctrl.companies"  exit_edit_mode ="$ctrl.exitEditMode()" on_edit_action="$ctrl.editedCompany($ctrl.object)" ng-if="$ctrl.isEditedMode"></company_edit>
+
+        </div>
+
+        <div class="tab-content" ng-if="$ctrl.isItemObject()">
+            <item_details item = "$ctrl.object" on_edit_action="$ctrl.goToEditMode()" ng-if="!$ctrl.isEditedMode"> </item_details>
+            <item_edit item = "$ctrl.object"   exit_edit_mode ="$ctrl.exitEditMode()" on_edit_action="$ctrl.editedItem($ctrl.object)" ng-if="$ctrl.isEditedMode"></item_edit>
+        </div>
+        <div class="tab-content" ng-if="$ctrl.isTransportObject()">
+            <transport_details transport = "$ctrl.object" ></transport_details>
+        </div>
+        <div class="tab-content" ng-if="$ctrl.isHistoryObject()">
+            <history_details history = "$ctrl.object" title="Historia"></history_details>
+        </div>
+    </div>
+
+    <div class="ibox-content" ng-if="!$ctrl.object._id"  style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+            <div >Nie wybrano obiektu w celu wyświetlenia szczegółów</div>
+    </div>
+
+</div>

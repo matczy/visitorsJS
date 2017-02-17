@@ -1,0 +1,47 @@
+
+<div class="card">
+    <div class="modal-header">
+        <h3 class="modal-title">Utwórz osobę</h3>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div layout="column">
+                <div class="alert alert-danger" role="alert" ng-if="$ctrl.errorMessage">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    {{$ctrl.errorMessage}}
+                </div>
+               <person-field person="$ctrl.resolve.person"></person-field>
+                <div layout-padding="4" style="padding-top:0">
+                    <label>Typ</label>
+                    <div class="my-typehead-wrapper" >
+                        <select chosen ng-model="$ctrl.resolve.person.type"
+                                ng-options="type  for type in $ctrl.resolve.types"
+                                data-placeholder="Typ" class="form-control input-lg">
+                            <option value="">Wybierz typ</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div layout-padding="4">
+                    <label>Dodaj do czarnej listy</label>
+                    <md-switch ng-model="$ctrl.resolve.person.isOnBlackList"  aria-label="Czrna lista" style="margin:0">{{$ctrl.resolve.person.isOnBlackList?"Tak":"Nie"}}</md-switch>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$ctrl.ok($ctrl.resolve.person)" >
+            Zapisz
+        </button>
+        <button class="btn btn-default" ng-click="$ctrl.cancel()">
+            Zamknij
+        </button>
+
+    </div>
+</div>
+
+
+

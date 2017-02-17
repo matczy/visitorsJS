@@ -1,0 +1,23 @@
+
+<md-card>
+    <div layout="row">
+        <div style="margin-left:12px;margin-top:12px;margin-right:12px" flex>
+            <div style="font-size: 16px;font-weight: 600;  display: block; color:#737373; margin: 2px 0 5px 0;">
+                {{$ctrl.item.code}}
+            </div>
+            <div style="display: block; max-width: 100%;margin-bottom: 5px; font-weight: 400;color:#737373">
+                {{$ctrl.item.name}}, {{$ctrl.item.type}}
+            </div>
+
+        </div>
+        <div style="margin-right:6px;margin-top: 6px;margin-bottom: 6px" layout="row">
+            <div style="margin-right:6px;margin-top: 6px;margin-bottom: 6px" layout="column" layout-align="center center" ng-if="$ctrl.type=='PERSON_PROMPT'">
+                <button class="btn btn-xs btn-outline btn-primary" flex   ng-click="$ctrl.onAction({data:{item:$ctrl.item}})">
+                    <i class="fa fa-long-arrow-right" style="padding-right:0px"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</md-card>

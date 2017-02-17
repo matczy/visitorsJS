@@ -1,0 +1,31 @@
+<div layout-padding="4">
+    <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Kod</label>
+    <input ng-model="$ctrl.item.code" ng-disabled="$ctrl.disabled" type="text"
+           ng-change="$ctrl.findPrompt({text:$ctrl.item.code})"
+           placeholder="Kod" name="code"
+           class="form-control input-lg" required>
+    <div style="color:#a51807" role="alert" ng-messages="$ctrl.formName.code.$error" ng-if="$ctrl.formName.code.$touched">
+        <p   ng-message="required">Pole Kod jest wymagane</p>
+    </div>
+</div>
+
+<div layout-padding="4">
+    <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Producent/Nazwa</label>
+    <input ng-model="$ctrl.item.name"  ng-disabled="$ctrl.disabled" type="text" placeholder="Nazwa" name="name"
+           class="form-control input-lg">
+</div>
+<div layout-padding="4">
+
+    <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Typ</label>
+    <div class="my-typehead-wrapper" >
+
+        <select chosen ng-model="$ctrl.item.type"
+                ng-options="type  for type in $ctrl.types"
+                data-placeholder="Typ" class="form-control input-lg">
+            <option value="">Wybierz rodzaj</option>
+        </select>
+
+    </div>
+</div>
+
+

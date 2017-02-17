@@ -1,0 +1,24 @@
+<div layout="row" layout-align="center center" style="padding-top:8px;padding-bottom:8px;">
+    <div  flex style="margin-left:10px">
+        <div style="font-size:14px">
+            <b>{{$ctrl.transport.driver.surnameAndName}}</b><person-type type="$ctrl.transport.driver.type" style="margin-left:6px"></person-type>
+        </div>
+        <div style="font-size:12px">
+            <span ng-if="$ctrl.transport.driver.company.name">Firma: {{$ctrl.transport.driver.company.name}}, </span>  <span
+                ng-if="$ctrl.person.phone">Telefon: {{$ctrl.person.phone}}</span>
+        </div>
+    </div>
+
+    <div  flex="15" >{{$ctrl.transport.vehicle.registration}}</div>
+    <div  flex="15" >{{$ctrl.transport.trailer.registration}}</div>
+    <div  flex="15"  ng-if="$ctrl.showCreatedDate"> {{$ctrl.transport.createdDate|date:'yy-MM-dd HH:mm'}}</div>
+
+    <div  flex="15" style="margin-right:10px;text-align: right">
+        <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.transport})">{{$ctrl.onActionTitle}}</button>
+    </div>
+</div>
+
+
+
+
+

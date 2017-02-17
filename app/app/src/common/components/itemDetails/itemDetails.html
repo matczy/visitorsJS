@@ -1,0 +1,40 @@
+<div>
+    <div class="client-detail">
+        <div layout="row" style="font-weight: 700;margin-bottom: 12px" layout-align="center center">
+            <div style="font-size:24px;font-weight: 700">Przedmiot</div>
+            <div flex style="margin-left:20px">
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-default" ng-click="$ctrl.onEditAction()">Edytuj</button>
+            </div>
+        </div>
+        <ul class="list-group clear-list" style="margin-left:4px">
+            <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Kod</div>
+                    <div flex><strong>{{$ctrl.item.code}}</strong></div>
+                </div>
+            </li>
+
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Nazwa</div>
+                    <div flex><strong>{{$ctrl.item.name}}</strong></div>
+                </div>
+            </li>
+
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Type</div>
+                    <div flex><item-type type="$ctrl.item.type"></item-type></div>
+                </div>
+            </li>
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Data utworzenia</div>
+                    <div flex><strong>{{$ctrl.item.createdDate |date:'yy-MM-dd HH:mm'}}</strong></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

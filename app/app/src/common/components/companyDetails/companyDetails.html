@@ -1,0 +1,59 @@
+<div>
+    <div class="client-detail">
+        <div layout="row" style="font-weight: 700;margin-bottom: 12px" layout-align="center center">
+            <div style="font-size:24px;font-weight: 700">Firma</div>
+            <div flex style="margin-left:20px">
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-default" ng-click="$ctrl.onEditAction()">Edytuj</button>
+            </div>
+        </div>
+        <ul class="list-group clear-list" style="margin-left:4px">
+            <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Nazwa</div>
+                    <div flex><strong>{{$ctrl.company.name}}</strong></div>
+                </div>
+            </li>
+
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Czarna lista</div>
+                    <div flex ng-class="$ctrl.company.isOnBlackList?'red-text':'green-text'">
+                        <strong>{{$ctrl.company.isOnBlackList?'Tak':'Nie'}}</strong>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
+                <div layout="row" style="margin-bottom: 5px">
+                    <div flex="25">Data utworzenia</div>
+                    <div flex><strong>{{$ctrl.company.createdDate |date:'yy-MM-dd HH:mm'}}</strong></div>
+                </div>
+            </li>
+        </ul>
+
+        <div id="vertical-timeline" class="vertical-container dark-timeline no-margins">
+
+            <div class="vertical-timeline-block" ng-if="$ctrl.workers.length">
+                <div class="vertical-timeline-icon lazur-bg">
+                    <i class="fa fa-users"></i>
+                </div>
+
+                <div class="vertical-timeline-content my-table" >
+                    <h4>Pracownicy</h4>
+                    <ul class="list-group list-unstyled" style="margin-bottom: 0">
+                        <li class=list-group-item" ng-repeat="worker in $ctrl.workers" >
+                            <div layout="row" style="padding: 5px 5px 5px 0;">
+                                <div flex="5">{{$index+1}}.</div>
+                                <div flex><strong>{{worker.surnameAndName}}</strong><span><i class="fa fa-phone" style="margin-left:8px">{{worker.phone}}</i></span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

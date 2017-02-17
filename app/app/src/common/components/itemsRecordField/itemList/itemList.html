@@ -1,0 +1,6 @@
+<div layout="column" layout-wrap flex style="background-color: white;margin-top:4px;">
+    <div ng-repeat="item in $ctrl.items" class="feed-activity-list" flex >
+        <item item="item" remove = "$ctrl.removeFromItemsList(item)" disabled="$ctrl.disabled" style="background-color: white"></item>
+    </div>
+</div>
+

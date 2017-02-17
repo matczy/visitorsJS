@@ -1,0 +1,86 @@
+<div layout="row" layout-padding style="margin-top: 20px;">
+    <div class="tabs-container" flex style="height: 100%">
+
+        <uib-tabset>
+            <uib-tab heading="Brama osoby: 24h">
+                <div class="panel-body" layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <div ng-if="$ctrl.gatePerson24h.labels.length==0" class="ibox">
+                            <div class="ibox-content" style="min-height:300px;height: 100%;font-size:15px" layout="row"
+                                 layout-align="center center">
+                                <div>Brak danych do wyświetlenia</div>
+                            </div>
+                        </div>
+                        <canvas class="chart chart-bar"
+                                height="40"
+                                width="100"
+                                chart-data="$ctrl.gatePerson24h.data" chart-labels="$ctrl.gatePerson24h.labels"
+                                chart-series="$ctrl.gatePerson24h.series"
+                                chart-options = "$ctrl.options">
+                        </canvas>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Brama transport: 24h">
+                <div class="panel-body" layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <div ng-if="$ctrl.gateTransport24h.labels.length==0" class="ibox">
+                            <div class="ibox-content" style="min-height:300px;height: 100%;font-size:15px" layout="row"
+                                 layout-align="center center">
+                                <div>Brak danych do wyświetlenia</div>
+                            </div>
+                        </div>
+                        <canvas class="chart chart-bar"
+                                height="40"
+                                width="100"
+                                chart-data="$ctrl.gateTransport24h.data" chart-labels="$ctrl.gateTransport24h.labels"
+                                chart-series="$ctrl.gateTransport24h.series"
+                                chart-options = "$ctrl.options">
+                        </canvas>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Brama osoby: 30 dni">
+                <div class="panel-body" layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <div ng-if="$ctrl.gatePerson30days.labels.length==0" class="ibox">
+                            <div class="ibox-content" style="min-height:300px;height: 100%;font-size:15px" layout="row"
+                                 layout-align="center center">
+                                <div>Brak danych do wyświetlenia</div>
+                            </div>
+                        </div>
+                        <canvas class="chart chart-bar"
+                                height="40"
+                                width="100"
+                                chart-data="$ctrl.gatePerson30days.data" chart-labels="$ctrl.gatePerson30days.labels"
+                                chart-series="$ctrl.gatePerson30days.series"
+                                chart-options = "$ctrl.options">
+                        </canvas>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Brama transport: 30 dni">
+                <div class="panel-body" layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <div ng-if="$ctrl.gateTransport30days.labels.length==0" class="ibox">
+                            <div class="ibox-content" style="min-height:300px;height: 100%;font-size:15px" layout="row"
+                                 layout-align="center center">
+                                <div>Brak danych do wyświetlenia</div>
+                            </div>
+                        </div>
+                        <canvas class="chart chart-bar"
+                                height="40"
+                                width="100"
+                                chart-data="$ctrl.gateTransport30days.data" chart-labels="$ctrl.gateTransport30days.labels"
+                                chart-series="$ctrl.gateTransport30days.series"
+                                chart-options = "$ctrl.options">
+                        </canvas>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>
+
+
+

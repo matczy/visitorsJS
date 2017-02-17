@@ -1,0 +1,41 @@
+<md-card>
+    <div layout="row">
+        <div style="margin: 12px;" flex>
+            <div>
+            Status: <p style="display:inline" ng-class="$ctrl.person.isOnObject?'green-text':'red-text'">{{$ctrl.person.isOnObject?'Na obiekcie':'Poza obiektem'}}</p>
+        </div>
+            <div style="font-size: 16px;font-weight: 600;  display: block; color:#737373; margin: 2px 0 5px 0;">
+                {{$ctrl.person.surnameAndName}}
+            </div>
+            <div style="display: block; max-width: 100%;margin-bottom: 5px; font-weight: 400;color:#737373">
+                {{$ctrl.person.documentIdentifier}}, {{$ctrl.person.company.name}}
+            </div>
+
+
+            <div ng-if="$ctrl.type==='PERSON_PROMPT' && $ctrl.usedVehicles.length>0">
+
+            <select placeholder="Wybierz pojazd" class="form-control input-sm" ng-model="$ctrl.selectedVehicle"
+                    ng-options="usedVehicle.registration as usedVehicle.registration for usedVehicle in $ctrl.usedVehicles">
+            </select>
+        </div>
+        </div>
+
+        <div style="margin-right:6px;margin-top: 6px;margin-bottom: 6px" layout="row">
+
+            <div style="margin-right:6px;margin-top: 6px;margin-bottom: 6px" layout="column" layout-align="center center" ng-if="$ctrl.type=='PERSON_PROMPT'">
+                <button class="btn btn-xs btn-outline btn-primary" flex  ng-click="$ctrl.onAction({data:{person:$ctrl.person, registration:$ctrl.selectedVehicle}})">
+                    <i class="fa fa-long-arrow-right" style="padding-right:0px"></i>
+                </button>
+            </div>
+
+            <div style="margin-right:6px;margin-top: 6px;margin-bottom: 6px" layout="column" layout-align="center center" ng-if="$ctrl.type=='PASSENGER_PROMPT'">
+                <button class="btn btn-xs btn-outline btn-primary" flex ng-click="$ctrl.onAction({data:{person:$ctrl.person}})">
+                    <i class="fa fa-long-arrow-right" style="padding-right:0px"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</md-card>
+

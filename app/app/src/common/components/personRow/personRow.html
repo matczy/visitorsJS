@@ -1,0 +1,27 @@
+<div layout="row" layout-align="center center" style="padding-top:8px;padding-bottom:8px;">
+    <div  flex="15" style="margin-left:10px">  <person-type type="$ctrl.person.type"></person-type></div>
+
+    <div  flex >
+        <div style="font-size:14px">
+            <b>{{$ctrl.person.surnameAndName}}</b>
+        </div>
+        <div style="font-size:12px">
+            <span ng-if="$ctrl.person.company.name">Firma: {{$ctrl.person.company.name}}</span>
+        </div>
+    </div>
+    <div flex="15" ng-if="$ctrl.person.phone"><i class="fa fa-phone"></i> {{$ctrl.person.phone| phoneFilter}}</div>
+    <div  flex="15"  ng-if="$ctrl.showCreatedDate"> {{$ctrl.person.createdDate|date:'yy-MM-dd HH:mm'}}</div>
+    <div  flex="15"  ng-if="$ctrl.showLastEntry"> {{$ctrl.person.lastEntry|date:'yy-MM-dd HH:mm'}}</div>
+
+    <div  flex="20" style="margin-right:10px;text-align: right">
+        <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.person})">{{$ctrl.onActionTitle}}</button>
+        <button class="btn btn-default" ng-click="$ctrl.immediatelyExitAction({object:$ctrl.person})" ng-if="$ctrl.showImmediatelyExitAction=='true'">Wypuść</button>
+
+    </div>
+</div>
+
+
+
+
+
+

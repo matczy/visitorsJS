@@ -1,0 +1,7 @@
+<button ng-disabled="$ctrl.formName.$invalid" ng-if="$ctrl.size === 'lg'" ng-click="$ctrl.onClick()" type="submit" class="btn btn-lg" ng-class="$ctrl.color"
+        style="width:100%"><i ng-class="$ctrl.icon"></i><strong>{{$ctrl.title}}</strong>
+</button>
+
+<button ng-disabled="$ctrl.formName.$invalid" ng-if="$ctrl.size !== 'lg'" ng-click="$ctrl.onClick()" type="submit" class="btn" ng-class="$ctrl.color"
+        style="width:100%"><i ng-if="$ctrl.icon" ng-class="$ctrl.icon"></i><strong>{{$ctrl.title}}</strong>
+</button>
