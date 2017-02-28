@@ -64,9 +64,7 @@ angular.module('app', [
     .config(
         ($locationProvider,$stateProvider, $urlRouterProvider, localStorageServiceProvider, pouchDBProvider, POUCHDB_METHODS,ChartJsProvider,$httpProvider)=>{
             "ngInject"
-            $httpProvider.defaults.useXDomain = true;
-            delete $httpProvider.defaults.headers.common['X-Requested-With'];
-            $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
             let authMethods = {
                 login: 'qify',

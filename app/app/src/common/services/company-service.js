@@ -44,6 +44,8 @@ class CompanyService {
                             return this.$q.reject({message:'TO_MANY_RESULTS_COMPANY',data:error.data});
                     }
                 });
+        }else{
+            this.$q.reject();
         }
 
     }
