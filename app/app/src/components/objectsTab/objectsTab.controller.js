@@ -26,7 +26,12 @@ class ObjectsTabController {
         });
 
         this.ItemService.loadItems().then((data)=>{
-            this.items = data;
+            this.items = _.filter(data, (e) => {
+                return e.isInternal == false;
+            })
+            this.internalEquipments = _.filter(data, (e) => {
+                return e.isInternal == true;
+            })
         });
         this.TransportService.loadTransports().then((data)=>{
             this.transports = data;
@@ -50,7 +55,12 @@ class ObjectsTabController {
             this.trailers = data;
         });
         this._$rootScope.$on(this.CONST.REFRESH_ITEMS, (event, data)=> {
-            this.items = data;
+            this.items = _.filter(data, (e) => {
+                return e.isInternal == false;
+            })
+            this.internalEquipments = _.filter(data, (e) => {
+                return e.isInternal == true;
+            })
         });
 
         this._$rootScope.$on(this.CONST.REFRESH_HISTORY, (event, data)=> {

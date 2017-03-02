@@ -20,6 +20,12 @@
             <item_details item = "$ctrl.object" on_edit_action="$ctrl.goToEditMode()" ng-if="!$ctrl.isEditedMode"> </item_details>
             <item_edit item = "$ctrl.object"   exit_edit_mode ="$ctrl.exitEditMode()" on_edit_action="$ctrl.editedItem($ctrl.object)" ng-if="$ctrl.isEditedMode"></item_edit>
         </div>
+
+        <div class="tab-content" ng-if="$ctrl.isInternalEquipmentObject()">
+            <internal_equipment_details item = "$ctrl.object" on_edit_action="$ctrl.goToEditMode()" persons="$ctrl.persons" ng-if="!$ctrl.isEditedMode"> </internal_equipment_details>
+            <internal_equipment_edit item = "$ctrl.object"   exit_edit_mode ="$ctrl.exitEditMode()" on_edit_action="$ctrl.editedItem($ctrl.object)" ng-if="$ctrl.isEditedMode"></internal_equipment_edit>
+        </div>
+
         <div class="tab-content" ng-if="$ctrl.isTransportObject()">
             <transport_details transport = "$ctrl.object" ></transport_details>
         </div>

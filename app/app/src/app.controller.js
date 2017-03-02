@@ -3,7 +3,7 @@ class AppController {
         "ngInject";
 
 
-        let localDB = PouchdbService.createDatabase('reco');
+        let localDB = PouchdbService.createDatabase('reco1');
         PouchdbService.createHistoryViewsForDay();
         PouchdbService.createHistoryViewsForMonth();
 
@@ -71,6 +71,7 @@ class AppController {
 
             if (result.id.indexOf('items') !== -1) {
                 ItemService.loadItems().then((items)=> {
+                    console.log(items)
                     $rootScope.$broadcast(CONST.REFRESH_ITEMS, items);
                 });
             }

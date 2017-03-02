@@ -20,6 +20,9 @@ import ItemRow from './itemRow/itemRow'
 import ItemDetails from './itemDetails/itemDetails'
 import ItemEdit from './itemEdit/itemEdit'
 
+import InternalEquipmentDetails from './internalEquipmentDetails/internalEquipmentDetails'
+import InternalEquipmentEdit from './internalEquipmentEdit/internalEquipmentEdit'
+
 import TransportRow from './transportRow/transportRow'
 import TransportDetails from './transportDetails/transportDetails'
 
@@ -31,7 +34,7 @@ import CompanyRow from './companyRow/companyRow'
 import CompanyDetails from './companyDetails/companyDetails'
 import CompanyEdit from './companyEdit/companyEdit'
 
-
+import ChosePersonRow from './chosePersonRow/chosePersonRow'
 
 
 let myComponents = angular.module('mycomponents', [
@@ -43,7 +46,7 @@ let myComponents = angular.module('mycomponents', [
     ItemRow.name,ItemDetails.name,ItemEdit.name,
     TransportRow.name,TransportDetails.name,
     HistoryRow.name,HistoryDetails.name,
-    CompanyRow.name,CompanyDetails.name,CompanyEdit.name
+    CompanyRow.name,CompanyDetails.name,CompanyEdit.name, InternalEquipmentDetails.name, InternalEquipmentEdit.name,ChosePersonRow.name
 ]);
 
 

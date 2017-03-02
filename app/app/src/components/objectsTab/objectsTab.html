@@ -5,7 +5,7 @@
             <uib-tab heading="Osoby" ng-click="$ctrl.changeTab()">
                 <div class="panel-body" layout="row" style="margin-right:30px;">
                     <div flex>
-                        <persons-table persons="$ctrl.persons" show_details="$ctrl.showDetails(object)"></persons-table>
+                        <persons-table persons="$ctrl.persons"  show_details="$ctrl.showDetails(object)"></persons-table>
                     </div>
                 </div>
             </uib-tab>
@@ -34,6 +34,13 @@
                 <div class="panel-body"  layout="row" style="margin-right:30px;">
                     <div flex>
                         <items_table items="$ctrl.items"  show_details="$ctrl.showDetails(object)"></items_table>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Sprzęt firmowy"  ng-click="$ctrl.changeTab()">
+                <div class="panel-body"  layout="row" style="margin-right:30px;">
+                    <div flex>
+                        <internal_equipments_table equipments="$ctrl.internalEquipments"  show_details="$ctrl.showDetails(object)"></internal_equipments_table>
                     </div>
                 </div>
             </uib-tab>

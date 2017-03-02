@@ -21,7 +21,7 @@ class ItemService {
     }
 
     create(item) {
-        let newItem = new Item('items' + item.code.toLowerCase() + '-' + new Date().toISOString(), item.name, item.code, item.type)
+        let newItem = new Item('items' + item.code.toLowerCase() + '-' + new Date().toISOString(), item.name, item.code, item.type, item.isInternal)
         return this.PouchdbService.addDocument(newItem);
     }
 

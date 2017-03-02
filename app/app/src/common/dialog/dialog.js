@@ -6,6 +6,7 @@ import personComponent from './person/personDialog.component';
 import vehicleComponent from './vehicle/vehicleDialog.component'
 import itemComponent from './item/itemDialog.component'
 import companyComponent from './company/companyDialog.component'
+import internalEquipmentComponent from './internalEquipment/internalEquipmentDialog.component'
 
 let dialogModule = angular.module('dialogModule', [])
 
@@ -16,7 +17,9 @@ let dialogModule = angular.module('dialogModule', [])
     .component('personDialog', personComponent)
     .component('vehicleDialog', vehicleComponent)
     .component('itemDialog', itemComponent)
-    .component('companyDialog', companyComponent);
+    .component('companyDialog', companyComponent)
+.component('internalEquipmentDialog', internalEquipmentComponent);
+
 
 
 export default dialogModule;

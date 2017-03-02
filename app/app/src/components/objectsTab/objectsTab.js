@@ -5,8 +5,9 @@ import transportsTableComponent from './transportTable/transportsTable.component
 import historiesTableComponent from './historyTable/historyTable.component'
 import itemsTableComponent from './itemTable/itemsTable.component'
 import companiesTableComponent from './companiesTable/companiesTable.component'
-
+import internalEquipmentsTabComponent from './internalEquipmentTable/internalEquipmentTable.component'
 import RightPanel from './rightPanel/rightPanel'
+import ChosePersonTableComponent from './choosePersonTable/chosePersonTable.component'
 let objectsTabModule = angular.module('objectsTab', [RightPanel.name])
 
     .component('personsTable', personsTableComponent)
@@ -16,6 +17,8 @@ let objectsTabModule = angular.module('objectsTab', [RightPanel.name])
     .component('itemsTable', itemsTableComponent)
     .component('companiesTable', companiesTableComponent)
     .component('objectsTab', objectsTabComponent)
+    .component('internalEquipmentsTable', internalEquipmentsTabComponent)
+    .component('chosePersonTable',ChosePersonTableComponent)
     .config(($stateProvider, $urlRouterProvider)=> {
         "ngInject"
         $stateProvider

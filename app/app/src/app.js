@@ -43,6 +43,7 @@ import '../../node_modules/angular-toastr/dist/angular-toastr.css';
 import '../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css';
 
 import '../assets/css/style.css';
+import Offline from '../vendor/offline'
 
 angular.module('app', [
     'ui.bootstrap',
@@ -65,7 +66,6 @@ angular.module('app', [
         ($locationProvider,$stateProvider, $urlRouterProvider, localStorageServiceProvider, pouchDBProvider, POUCHDB_METHODS,ChartJsProvider,$httpProvider)=>{
             "ngInject"
 
-
             let authMethods = {
                 login: 'qify',
                 logout: 'qify',
@@ -79,12 +79,12 @@ angular.module('app', [
                 .setStorageType('sessionStorage').setDefaultToCookie(false);
 
 
-             $locationProvider.html5Mode(true).hashPrefix('!');
-
+            $locationProvider.html5Mode(true).hashPrefix('!');
 
             // $locationProvider.hashPrefix('!');
             //
             // $locationProvider.html5Mode({enabled: false, requireBase: false});
+
 
             $urlRouterProvider.otherwise('/home');
 

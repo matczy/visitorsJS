@@ -45,7 +45,8 @@ class CompanyService {
                     }
                 });
         }else{
-            this.$q.reject();
+            let deffer = this.$q.defer()
+            return deffer.promise
         }
 
     }

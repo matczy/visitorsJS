@@ -11,7 +11,7 @@ let personRowComponent = {
         onActionTitle: '@',
         index: '<',
         showCreatedDate: '<',
-        showLastEntry: '<'
+        showLastEntry: '<',
     },
     template,
     controller

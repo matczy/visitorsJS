@@ -16,12 +16,13 @@ let dialogModule = angular.module('constModule', []).constant("CONST", {
         "REFRESH_VEHICLES": "refreshVehicles",
         "REFRESH_TRAILERS": "refreshTrailers",
         "REFRESH_ITEMS": "refreshItems",
+        "REFRESH_INTERNAL_EQUIPMENTS": "refreshInternalEquipments",
         "REFRESH_TRANSPORTS": "refreshTransports",
         "REFRESH_HISTORY": "refreshHistory",
         "REFRESH_COMPANY": "refreshCompany",
-        "REFRESH_ON_OBJECT":"refreshOnObject",
-        "STATE_NAME":"stateName",
-        "GET_TITLE":"getTitle"
+        "REFRESH_ON_OBJECT": "refreshOnObject",
+        "STATE_NAME": "stateName",
+        "GET_TITLE": "getTitle"
 
     }
 );

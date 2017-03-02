@@ -11,22 +11,25 @@
                     <span class="sr-only">Error:</span>
                     {{$ctrl.errorMessage}}
                 </div>
-               <person-field person="$ctrl.resolve.person"></person-field>
-                <div layout-padding="4" style="padding-top:0">
-                    <label>Typ</label>
-                    <div class="my-typehead-wrapper" >
-                        <select chosen ng-model="$ctrl.resolve.person.type"
-                                ng-options="type  for type in $ctrl.resolve.types"
-                                data-placeholder="Typ" class="form-control input-lg">
-                            <option value="">Wybierz typ</option>
-                        </select>
+                <form name="newPerson" novalidate>
+                    <person-field person="$ctrl.resolve.person" companies="$ctrl.resolve.companies" form_name="newPerson"></person-field>
+                    <div layout-padding="4" style="padding-top:0">
+                        <label>Typ</label>
+                        <div class="my-typehead-wrapper" >
+                            <select chosen ng-model="$ctrl.resolve.person.type"
+                                    ng-options="type  for type in $ctrl.resolve.types"
+                                    data-placeholder="Typ" class="form-control input-lg">
+                                <option value="">Wybierz typ</option>
+                            </select>
 
+                        </div>
                     </div>
-                </div>
-                <div layout-padding="4">
-                    <label>Dodaj do czarnej listy</label>
-                    <md-switch ng-model="$ctrl.resolve.person.isOnBlackList"  aria-label="Czrna lista" style="margin:0">{{$ctrl.resolve.person.isOnBlackList?"Tak":"Nie"}}</md-switch>
-                </div>
+                    <div layout-padding="4">
+                        <label>Dodaj do czarnej listy</label>
+                        <md-switch ng-model="$ctrl.resolve.person.isOnBlackList"  aria-label="Czrna lista" style="margin:0">{{$ctrl.resolve.person.isOnBlackList?"Tak":"Nie"}}</md-switch>
+                    </div>
+                </form>
+
             </div>
 
         </div>

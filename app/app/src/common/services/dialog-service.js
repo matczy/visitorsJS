@@ -75,6 +75,10 @@ class DialogService {
                 person:()=>{
                     return new Person();
                 },
+                companies:(CompanyService)=>{
+                    "ngInject"
+                    return CompanyService.loadCompanies();
+                },
                 types:()=>{
                     return ['GUEST','INTERNAL_WORKER','EXTERNAL_WORKER']
                 }
@@ -111,6 +115,25 @@ class DialogService {
                     return 'Utwórz przedmiot';
                 },
                 item:()=>{
+                    return new Item();
+                },
+                types:()=>{
+                    return ['Laptop', 'Kamera','Inne']
+                }
+            }
+        });
+        return modalInstance.result;
+    }
+
+    createUpdateInternalEquipment(){
+        let modalInstance =this.$uibModal.open({
+            animation:true,
+            component:'internalEquipmentDialog',
+            resolve:{
+                title:()=>{
+                    return 'Utwórz sprzęt';
+                },
+                internalEquipment:()=>{
                     return new Item();
                 },
                 types:()=>{
