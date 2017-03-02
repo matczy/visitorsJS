@@ -109,9 +109,6 @@ angular.module('app', [
                     companies:(CompanyService)=>{
                         return CompanyService.loadCompanies();
                     },
-                    // histories:(GateActionService)=>{
-                    //     return GateActionService.getLastHistory(1000);
-                    // },
                     lastGateActionHistory:(GateActionService)=>{
                         return GateActionService.getLastHistory(50);
                     }

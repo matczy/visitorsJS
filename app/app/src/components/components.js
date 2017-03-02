@@ -5,11 +5,11 @@ import RecordPerson from './registration/personGate/recordPerson';
 import Home from './home/home';
 import RegistrationHistory from './registration/history/registrationHistory';
 import ObjectsTab from './objectsTab/objectsTab';
-
+import RecordEquipment from './registration/equipment/recordEquipment'
 import HistoryChart from './historyChart/historyChart';
 
 
 let componentModule = angular.module('app.components', [
-  RecordTransport.name,RecordPerson.name, Home.name, RegistrationHistory.name, ObjectsTab.name, Login.name,HistoryChart.name]);
+  RecordTransport.name,RecordPerson.name, Home.name, RegistrationHistory.name, ObjectsTab.name, Login.name,HistoryChart.name,RecordEquipment.name]);
 
 export default componentModule;

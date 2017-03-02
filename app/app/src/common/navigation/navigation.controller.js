@@ -27,7 +27,7 @@ class NavigationController {
 
         this.isShowedSidebar = !this.isShowedSidebar;
         this._$rootScope.$broadcast(this.CONST.HISTORY_TAB);
-        if(name==='home' || name==='objectsTab'){
+        if(name==='home' || name==='objectsTab' || name==='equipment-recording'){
             this._$rootScope.$broadcast(this.CONST.HIDE_RIGHT_PANEL)
         }else{
             this._$rootScope.$broadcast(this.CONST.SHOW_RIGHT_PANEL)
