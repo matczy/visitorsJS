@@ -6,7 +6,7 @@
          padding: 20px 10px 20px 10px;
          border-bottom: 1px solid #e7eaec !important;margin-bottom: 20px;">
             <div flex class="input-group">
-                <input type="text" placeholder=" Wpisz barcode sprzętu  " class="input input-lg form-control" ng-model="$ctrl.searchText">
+                <input type="text" placeholder=" Wpisz barcode sprzętu " ng-model-options="{ debounce: 1000 }" ng-change="$ctrl.search()" class="input input-lg form-control" ng-model="$ctrl.searchText">
                 <span class="input-group-btn">
                         <button type="button" class="btn btn-default btn-lg" ng-click="$ctrl.search()"><i class="fa fa-search" style="padding:0"></i> </button>
                 </span>
@@ -20,20 +20,16 @@
                         <div layout="row">
                             <div layout="column" flex="50" layout-padding>
 
-                                <!--<div ng-if="$ctrl.person.isOnBlackList || $ctrl.person.company.isOnBlackList" class="alert alert-danger" style="margin-top=12px">-->
-                                    <!--<div ng-if="$ctrl.person.isOnBlackList"> Wybrana osoba znajduje sie na czarnej liście.</div>-->
-                                    <!--<div ng-if="$ctrl.person.company.isOnBlackList">Wybrana firma znajduje sie na czarnej liście</div>-->
-                                <!--</div>-->
                                 <person-field person="$ctrl.item.assignedPerson" companies="$ctrl.companies" disabled="true"
                                               form_name="recordEquipment">
                                 </person-field>
                                 <div layout="row" layout-padding style="margin-top:15px">
                                     <action-button on-click="$ctrl.entryAction()" title="Wejście" color="btn-primary"
-                                                   size="lg" form_name="recordPerson"
+                                                   size="lg" form_name="recordEquipment"
                                                    flex></action-button>
                                     <span style="width:20px"></span>
                                     <action-button on-click="$ctrl.exitAction()" title="Wyjście" color="btn-danger"
-                                                   size="lg" form_name="recordPerson"
+                                                   size="lg" form_name="recordEquipment"
                                                    flex></action-button>
                                 </div>
                             </div>

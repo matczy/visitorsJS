@@ -43,6 +43,7 @@ import '../../node_modules/angular-toastr/dist/angular-toastr.css';
 import '../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css';
 
 import '../assets/css/style.css';
+require('../assets/dymo');
 import Offline from '../vendor/offline'
 
 angular.module('app', [

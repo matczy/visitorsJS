@@ -1,5 +1,5 @@
 class RightPanelController {
-    constructor(PersonService, VehicleService,TrailerService,ItemService,CompanyService,MessageService,$rootScope,CONST){
+    constructor(PersonService, VehicleService,TrailerService,ItemService,CompanyService,MessageService,$rootScope,CONST,PrinterService){
         "ngInject"
         this._$rootScope = $rootScope;
         this.CONST =CONST;
@@ -9,6 +9,7 @@ class RightPanelController {
         this.ItemService = ItemService;
         this.CompanyService = CompanyService;
         this.MessageService = MessageService;
+        this.PrinterService = PrinterService;
     }
 
     $onChanges(changes){
@@ -135,6 +136,16 @@ class RightPanelController {
             });
         }
 
+    }
+
+    printVisitCard(object){
+        if(object.type==="personGate"){
+            this.PrinterService.print(object.person,object.contactPerson)
+        }else{
+            object.transport.passengers.forEach((passenger)=>{
+                this.PrinterService.print(passenger,object.contactPerson)
+            })
+        }
     }
 
 }

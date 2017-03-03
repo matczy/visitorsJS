@@ -30,7 +30,7 @@
             <transport_details transport = "$ctrl.object" ></transport_details>
         </div>
         <div class="tab-content" ng-if="$ctrl.isHistoryObject()">
-            <history_details history = "$ctrl.object" title="Historia"></history_details>
+            <history_details history = "$ctrl.object" title="Historia" print_visit_card="$ctrl.printVisitCard(object)"></history_details>
         </div>
     </div>
 

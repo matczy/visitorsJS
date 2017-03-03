@@ -7,7 +7,7 @@ let rightPanelComponent={
         object:'<',
         isEditedMode:'=',
         persons:'<',
-        companies:'<'
+        companies:'<',
     },
     template,
     controller,

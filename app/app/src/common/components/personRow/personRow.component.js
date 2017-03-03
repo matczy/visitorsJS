@@ -12,6 +12,8 @@ let personRowComponent = {
         index: '<',
         showCreatedDate: '<',
         showLastEntry: '<',
+        showPrintCard:'<',
+        printVisitCard:'&'
     },
     template,
     controller

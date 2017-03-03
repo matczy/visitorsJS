@@ -1,10 +1,15 @@
 import recordEquipmentComponent from './recordEquipment.component.js';
+import RecordEquipmentService from './recordEquipment.service';
+import GateActionService from '../gateAction.service';
 
 import personField from '../personField/personField';
 
 
 let recordEquipment = angular.module('recordEquipment', [personField.name])
     .component('recordEquipmentComponent', recordEquipmentComponent)
+    .service('GateActionService',GateActionService)
+    .service('RecordEquipmentService', RecordEquipmentService)
+
 
     .config(($stateProvider, $urlRouterProvider) => {
         "ngInject";

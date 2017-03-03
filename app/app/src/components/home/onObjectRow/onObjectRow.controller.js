@@ -1,12 +1,13 @@
 
 class OnObjectRowController {
-    constructor($state, $rootScope,CONST,RecordPersonService,MessageService) {
+    constructor($state, $rootScope,CONST,RecordPersonService,MessageService,PrinterService) {
         "ngInject";
         this.$state = $state;
         this.$rootScope =$rootScope;
         this.CONST =CONST;
         this.RecordPersonService = RecordPersonService;
         this.MessageService = MessageService;
+        this.PrinterService = PrinterService;
     }
 
 
@@ -49,6 +50,10 @@ class OnObjectRowController {
                 this.MessageService.showInfoMessage("Poprawne zarejestrowanie wyjścia " + sucessRecordingResponse.person.surnameAndName);
             });
         }
+    }
+
+    printVisitCard(object){
+        this.PrinterService.print(object);
     }
 }
 

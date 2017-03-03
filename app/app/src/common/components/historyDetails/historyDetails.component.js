@@ -5,7 +5,8 @@ let historyDetailsComponent={
     restrict:'E',
     bindings:{
         history:'<',
-        title:'@'
+        title:'@',
+        printVisitCard:'&'
     },
     template,
     controller,

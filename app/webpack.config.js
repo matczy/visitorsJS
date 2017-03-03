@@ -20,7 +20,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.js$/, exclude: [/lib/, /node_modules/, /3rd_party/, /plugins/], loader: 'ng-annotate!babel'},
+            {test: /\.js$/, exclude: [/lib/, /node_modules/, /3rd_party/, /plugins/, /assets/], loader: 'ng-annotate!babel'},
             {test: /\.html$/, loader: 'raw'},
             {test: /\.styl$/, loader: 'style!css!stylus'},
             {

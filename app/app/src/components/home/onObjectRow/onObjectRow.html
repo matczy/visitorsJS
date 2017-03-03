@@ -1,5 +1,5 @@
 <div layout="row">
-    <person_row flex person="$ctrl.object" on_action="$ctrl.goToRecordPage(object)" immediately_exit_action="$ctrl.immediatelyExitAction(object)" show_immediately_exit_action="true" on_action_title="Uzupelnij i wypuść"  show_created_date="false" show_last_entry="true"  ng-if="$ctrl.isPerson()"></person_row>
+    <person_row flex person="$ctrl.object" on_action="$ctrl.goToRecordPage(object)" immediately_exit_action="$ctrl.immediatelyExitAction(object)" print_visit_card="$ctrl.printVisitCard(object)" show_immediately_exit_action="true" show_print_card="true" on_action_title="Uzupelnij i wypuść"  show_created_date="false" show_last_entry="true"  ng-if="$ctrl.isPerson()"></person_row>
     <vehicle_row flex vehicle="$ctrl.object" on_action="$ctrl.goToRecordPage(object)" on_action_title="Wyjazd"  show_created_date="false" show_last_entry="true" ng-if="$ctrl.isVehicle()"></vehicle_row>
     <trailer_row flex trailer="$ctrl.object" on_action="$ctrl.goToRecordPage(object)" on_action_title="Wyjazd"  show_created_date="false" show_last_entry="true"  ng-if="$ctrl.isTrailer()"></trailer_row>
 </div>

@@ -142,6 +142,7 @@ class RecordTransportController extends RecordController {
     }
 
     entryAction() {
+        console.log("32423423")
         if (this.RecordTransportValidator.checkDriverIsNotOnPersonsList(this.transport)) {
             this.RecordTransportService.recordEntry(this.transport, this.contactPerson, this.visitCard, this.comment)
                 .then((successTransportResponse) => {

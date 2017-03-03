@@ -3,7 +3,7 @@
         <gate-type type="$ctrl.history.type"></gate-type>
     </div>
 
-    <div flex="10" ng-if="$ctrl.history.type ==='personGate'" ng-class="$ctrl.history.action.type==='Entry'?'green-text':'red-text'">{{$ctrl.history.action.type==='Entry'?'Wejście':'Wyjście'}}</div>
+    <div flex="10" ng-if="$ctrl.history.type ==='personGate' || $ctrl.history.type ==='equipmentGate'" ng-class="$ctrl.history.action.type==='Entry'?'green-text':'red-text'">{{$ctrl.history.action.type==='Entry'?'Wejście':'Wyjście'}}</div>
     <div flex="10" ng-if="$ctrl.history.type ==='transportGate'" ng-class="$ctrl.history.action.type==='Entry'?'green-text':'red-text'">{{$ctrl.history.action.type==='Entry'?'Wjazd':'Wyjazd'}}</div>
 
     <div flex>
@@ -22,12 +22,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div ng-if="$ctrl.history.item">
+                    <div  >
+                        <div style="font-size:14px">
+                            <b>{{$ctrl.history.item.code}}</b> {{$ctrl.history.item.name}}
+                        </div>
+                        <div style="font-size:12px">
+                            <span>{{$ctrl.history.item.assignedPerson.surnameAndName}} </span>
+                            <span ng-if="$ctrl.history.item.assignedPerson.phone">Telefon: {{$ctrl.history.item.assignedPerson.phone| phoneFilter}}</span>
+                        </div>
+                    </div>
+                </div>
     </div>
 
     <div flex="15"  ng-if="$ctrl.showCreatedDate">{{$ctrl.history.action.date |date:'yy-MM-dd HH:mm'}}</div>
 
     <div flex="15" style="margin-right:10px;text-align: right">
         <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.transport})">{{$ctrl.onActionTitle}}</button>
+
     </div>
 </div>
 

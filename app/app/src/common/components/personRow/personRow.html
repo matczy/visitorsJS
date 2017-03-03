@@ -13,9 +13,11 @@
     <div  flex="15"  ng-if="$ctrl.showCreatedDate"> {{$ctrl.person.createdDate|date:'yy-MM-dd HH:mm'}}</div>
     <div  flex="15"  ng-if="$ctrl.showLastEntry"> {{$ctrl.person.lastEntry|date:'yy-MM-dd HH:mm'}}</div>
 
-    <div  flex="20" style="margin-right:10px;text-align: right">
+    <div  flex="30" style="margin-right:10px;text-align: right">
+        <button class="btn btn-primary" ng-click="$ctrl.printVisitCard({object:$ctrl.person})" ng-if="$ctrl.showPrintCard">Wejściówka</button>
+
         <button class="btn btn-default" ng-click="$ctrl.onAction({object:$ctrl.person})">{{$ctrl.onActionTitle}}</button>
-        <button class="btn btn-default" ng-click="$ctrl.immediatelyExitAction({object:$ctrl.person})" ng-if="$ctrl.showImmediatelyExitAction=='true'">Wypuść</button>
+        <button class="btn btn-default" ng-click="$ctrl.immediatelyExitAction({object:$ctrl.person})" ng-if="$ctrl.showImmediatelyExitAction">Wypuść</button>
 
     </div>
 </div>

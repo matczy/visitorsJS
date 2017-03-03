@@ -101,7 +101,7 @@ class RecordPersonController extends RecordController{
     }
 
     entryAction() {
-        this.RecordPersonService.recordEntry(this.person, this.contactPerson, this.visitCard, this.selectedItems, this.comment)
+        this.RecordPersonService.recordEntry(this.item)
             .then((success)=> {
                 this.successAction("Poprawne zarejestrowanie wejścia " + success.person.surnameAndName);
                 this._clearFields();

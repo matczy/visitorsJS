@@ -11,7 +11,7 @@ import PersonService from './services/person-service'
 import VehicleService from './services/vehicle-service'
 import TrailerService from './services/trailer-service'
 import ItemService from './services/item-service'
-
+import PrinterService from './services/printer-service'
 import TransportService from './services/transport-service'
 import MessageService from './services/message-service'
 import DialogService from './services/dialog-service'
@@ -43,6 +43,7 @@ let commonModule = angular.module('app.common', [
     .service('AuthService',AuthService)
     .service("SpeechRecognizerService",SpeechRecognizerService)
     .service('OnlineOfflineService',OnlineOfflineService)
+    .service('PrinterService',PrinterService)
     .filter('phoneFilter',()=>PhoneFilter.PhoneFilterFactory);
 
 export default commonModule;

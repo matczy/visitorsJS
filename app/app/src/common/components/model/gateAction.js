@@ -8,8 +8,8 @@ class GateAction {
             type: action,
             date: new Date().toISOString()
         };
-        this.contactPerson = contactPerson._id?contactPerson:null;
-        this.visitCard = visitCard._id?visitCard:null;
+        this.contactPerson = contactPerson && contactPerson._id?contactPerson:null;
+        this.visitCard = visitCard && visitCard._id?visitCard:null;
         this.comment = comment;
         this.type=type;
 
