@@ -13,10 +13,10 @@
                required
                ng-maxlength="80">
 
-        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('surnameAndNameField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"
+        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('surnameAndNameField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micAnimateSrc}}"
              ng-click="$ctrl.clickRecordIcon('surnameAndNameField',$ctrl.formName)" class="my_form-control-feedback"/>
 
-        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('surnameAndNameField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}"
+        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('surnameAndNameField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micSrc}}"
              ng-click="$ctrl.clickRecordIcon('surnameAndNameField',$ctrl.formName)" class="my_form-control-feedback"/>
     </div>
     <div style="color:#a51807;padding: 0" role="alert" ng-messages="$ctrl.formName.surnameAndNameField.$error"
@@ -38,11 +38,11 @@
                ng-minlength="4"
                ng-maxlength="11">
 
-        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('documentIdentifierField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"
+        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('documentIdentifierField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micAnimateSrc}}"
              ng-click="$ctrl.clickRecordIcon('documentIdentifierField',$ctrl.formName)"
              class="my_form-control-feedback"/>
 
-        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('documentIdentifierField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}"
+        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('documentIdentifierField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micSrc}}"
              ng-click="$ctrl.clickRecordIcon('documentIdentifierField',$ctrl.formName)"
              class="my_form-control-feedback"/>
     </div>
@@ -62,10 +62,10 @@
                ui-mask="999-999-999" ui-mask-placeholder ui-mask-placeholder-char="_"
                placeholder="Telefon" name="phoneField"
                class="form-control input-lg">
-        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('phoneField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"
+        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('phoneField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micAnimateSrc}}"
              ng-click="$ctrl.clickRecordIcon('phoneField',$ctrl.formName)" class="my_form-control-feedback"/>
 
-        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('phoneField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}"
+        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('phoneField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micSrc}}"
              ng-click="$ctrl.clickRecordIcon('phoneField',$ctrl.formName)" class="my_form-control-feedback"/>
 
     </div>
@@ -79,10 +79,10 @@
                uib-typeahead="company.name as company.name for company in $ctrl.companies | filter:$viewValue"
                typeahead-min-length="0" class="form-control input-lg">
 
-        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('companyField',$ctrl.formName)" ng-src="{{$ctrl.micAnimateSrc}}"
+        <img ng-if="$ctrl.online && $ctrl.showRecordIcon('companyField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micAnimateSrc}}"
              ng-click="$ctrl.clickRecordIcon('companyField',$ctrl.formName)" class="my_form-control-feedback"/>
 
-        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('companyField',$ctrl.formName)" ng-src="{{$ctrl.micSrc}}"
+        <img ng-if="$ctrl.online && !$ctrl.showRecordIcon('companyField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micSrc}}"
              ng-click="$ctrl.clickRecordIcon('companyField',$ctrl.formName)" class="my_form-control-feedback"/>
     </div>
 

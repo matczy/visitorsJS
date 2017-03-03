@@ -1,23 +1,26 @@
 import Person from '../../../common/components/model/person'
 class RecordEquipmentController{
-    constructor() {
+    constructor(ItemService) {
         "ngInject";
+        this.ItemService = ItemService;
+        this.searchText = '';
+    }
+
+    $onInit(){
 
     }
 
-    $onInit() {
+    search(){
+        this.ItemService.findByCodeOrName(this.searchText,'').then(data=>{
+            this.item  = data;
+        })
+    }
+
+    entryAction(){
 
     }
 
-    sendSurnameAndNameChangeEvent(surnameAndName) {
-
-    }
-
-    entryAction() {
-
-    }
-
-    exitAction() {
+    exitAction(){
 
     }
 
