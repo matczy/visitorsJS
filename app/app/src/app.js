@@ -80,11 +80,11 @@ angular.module('app', [
                 .setStorageType('sessionStorage').setDefaultToCookie(false);
 
 
-            $locationProvider.html5Mode(true).hashPrefix('!');
+            // $locationProvider.html5Mode(true).hashPrefix('!');
 
             // $locationProvider.hashPrefix('!');
             //
-            // $locationProvider.html5Mode({enabled: false, requireBase: false});
+            $locationProvider.html5Mode({enabled: false, requireBase: false});
 
 
             $urlRouterProvider.otherwise('/home');

@@ -1,3 +1,6 @@
+import mic from '../../../../assets/image/mic.gif'
+import micAnimate from '../../../../assets/image/mic-animate.gif'
+
 class RecognizationController {
     constructor($scope, $element,SpeechRecognizerService, $rootScope) {
         "ngInject";
@@ -22,8 +25,8 @@ class RecognizationController {
             angular.extend( isRecording,element )
         }));
         this.SpeechRecognizerService.addListeningInputs(isRecording);
-        this.micSrc = "../../../../assets/image/mic.gif";
-        this.micAnimateSrc = "../../../../assets/image/mic-animate.gif";
+        this.micSrc = 'visitor\\'+mic;
+        this.micAnimateSrc = 'visitor\\'+micAnimate;
     }
 
 
