@@ -1,0 +1,61 @@
+
+<div class="card">
+    <div class="modal-header">
+        <h3 class="modal-title">Utwórz sprzęt</h3>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div layout="column">
+                <div class="alert alert-danger" role="alert" ng-if="$ctrl.errorMessage">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    {{$ctrl.errorMessage}}
+                </div>
+
+                <form  role="form" name="createInternalEquipment" novalidate>
+                    <div layout-padding="4">
+                        <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Kod</label>
+                        <input ng-model="$ctrl.resolve.internalEquipment.code"  type="text"
+                               placeholder="Kod" name="code"
+                               class="form-control input-lg" required>
+                        <div style="color:#a51807" role="alert" ng-messages="$ctrl.createInternalEquipment.resolve.internalEquipment.code.$error" ng-if="$ctrl.createInternalEquipment.resolve.internalEquipment.code.$touched">
+                            <p   ng-message="required">Pole Kod jest wymagane</p>
+                        </div>
+                    </div>
+
+                    <div layout-padding="4">
+                        <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Producent/Nazwa</label>
+                        <input ng-model="$ctrl.resolve.internalEquipment.name"  type="text" placeholder="Nazwa" name="name"
+                               class="form-control input-lg">
+                    </div>
+
+                    <div layout-padding="4">
+                        <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Typ</label>
+                        <div class="my-typehead-wrapper" >
+
+                            <select chosen ng-model="$ctrl.resolve.internalEquipment.type"
+                                    ng-options="type  for type in $ctrl.resolve.types"
+                                    data-placeholder="Typ" class="form-control input-lg">
+                                <option value="">Wybierz rodzaj</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$ctrl.ok($ctrl.resolve.internalEquipment)" >
+            Zapisz
+        </button>
+        <button class="btn btn-default" ng-click="$ctrl.cancel()">
+            Zamknij
+        </button>
+
+    </div>
+</div>
+
+
+
