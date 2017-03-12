@@ -129,7 +129,7 @@ angular.module('app', [
         "ngInject"
 
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-            let loginPanelAvailable = false;
+            let loginPanelAvailable = true;
             if(loginPanelAvailable){
                 if(!OnlineOfflineService.getCurrentOnlineStatus()){
                     $rootScope.$broadcast("loggedEvent",true)

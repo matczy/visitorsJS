@@ -1,29 +1,34 @@
 class AppController {
     constructor($http,$sce,PouchdbService, PersonService, VehicleService, TrailerService, ItemService, TransportService, CompanyService, GateActionService, $rootScope, CONST,$location  ) {
         "ngInject";
+        let localDB = null;
+        if((new Date(2018,4,1)-new Date())>86400000){
+            localDB = PouchdbService.createDatabase('wabco1local');
+         }else{
+             localDB=null;
+         }
 
 
-        let localDB = PouchdbService.createDatabase('reco1');
         PouchdbService.createHistoryViewsForDay();
         PouchdbService.createHistoryViewsForMonth();
 
 
-        let synchronizeAllowed = false;
-//         remoteDB.signup('admin', 'admin1', function (err, response) {
-//             if (err) {
-//                 if (err.name === 'conflict') {
-// console.log("sadasdas")  ;
-//                 } else if (err.name === 'forbidden') {
-//                     console.log("34242342341d")
-//                 } else {
-// console.log("32423423")
-//                 }
-//             }
-//         });
+        let synchronizeAllowed = true;
+
 
         if(synchronizeAllowed){
-            let remoteDB = PouchdbService.createRemoteDatabase('http://127.0.0.1:5984/remotedatabase',{skipSetup: true});
-
+            let remoteDB = PouchdbService.createRemoteDatabase('http://127.0.0.1:5984/wabco1',{skipSetup: true});
+            // remoteDB.signup('admin', 'admin1', function (err, response) {
+            //     if (err) {
+            //         if (err.name === 'conflict') {
+            //             console.log("sadasdas")  ;
+            //         } else if (err.name === 'forbidden') {
+            //             console.log("34242342341d")
+            //         } else {
+            //             console.log("32423423")
+            //         }
+            //     }
+            // });
             localDB.sync(remoteDB, {
                 live: true,
                 retry: true

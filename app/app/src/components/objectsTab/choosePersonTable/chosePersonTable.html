@@ -1,0 +1,43 @@
+<div flex >
+    <div layout="row" layout-align="end start" style="margin-bottom: 10px;margin-right:10px">
+    </div>
+
+    <div style="margin-bottom:20px;margin-right:10px">
+
+        <div flex class="input-group">
+            <input type="text" placeholder=" Wyszukaj ... " class="input form-control" ng-model="$ctrl.searchText">
+            <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"> <i class="fa fa-search"
+                                                                      style="padding:0"></i> </button>
+                </span>
+
+        </div>
+    </div>
+    <div style="height:600px!important">
+        <div class="my-table" full-scroll>
+            <div layout="row" style="padding-top:8px;padding-bottom:8px;font-size:14px">
+                <div flex>Osoba</div>
+                <div flex="15">Telefon</div>
+                <div flex="20" style="margin-right:10px"></div>
+            </div>
+            <div>
+                <ul class="list-group list-unstyled">
+
+                    <li class=list-group-item" ng-repeat="elem in $ctrl.currentPersons|filter:$ctrl.searchText">
+                        <chose_person_row flex person="elem" on_action="$ctrl.chose({object:elem})" on_action_title="Wybierz"
+                                    ></chose_person_row>
+                    </li>
+                    <li>
+                        <div ng-if="$ctrl.currentPersons.length==0" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                            <div>Brak osób do wyświetlenia</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--</div>-->
+</div>
