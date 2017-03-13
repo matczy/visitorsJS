@@ -11,7 +11,6 @@ class PrinterService {
 
 
     print(person, contactPerson) {
-        console.log(person)
         dymo.label.framework.init(this._tryPrint(person, contactPerson));
     }
 
@@ -38,7 +37,7 @@ class PrinterService {
                 this.MessageService.showErrorMessage("Brak zainstalowanej drukarki");
 
             // finally print the label
-            label._tryPrint(printerName);
+            label.print(printerName);
         }
         catch (e) {
             this.MessageService.showErrorMessage(e.message || e);

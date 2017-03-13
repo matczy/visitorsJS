@@ -25,8 +25,8 @@ class RecognizationController {
             angular.extend( isRecording,element )
         }));
         this.SpeechRecognizerService.addListeningInputs(isRecording);
-        this.micSrc = 'visitor1\\'+mic;
-        this.micAnimateSrc = 'visitor1\\'+micAnimate;
+        this.micSrc = 'visitor\\'+mic;
+        this.micAnimateSrc = 'visitor\\'+micAnimate;
     }
 
 

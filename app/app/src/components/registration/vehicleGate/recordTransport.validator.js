@@ -14,7 +14,6 @@ class RecordTransportValidator {
     checkDriverIsNotOnPersonsList(transport){
         let driver = transport.driver;
         let passengers = transport.passengers;
-
         let result =_.filter(passengers,(passenger)=>{
             return !!((passenger.surnameAndName === driver.surnameAndName) && (passenger.identifier === driver.identifier));
         });
@@ -22,7 +21,6 @@ class RecordTransportValidator {
     }
 
     checkAllTransportObjectIsOnCorrecSite(transport,action) {
-        console.log(transport)
         if (action === 'Entry') {
             if (transport.passengers) {
                 transport.passengers.forEach((passenger)=> {
