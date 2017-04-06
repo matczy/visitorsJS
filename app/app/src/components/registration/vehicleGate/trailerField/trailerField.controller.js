@@ -17,9 +17,11 @@ class TrailerFieldController extends RecognizationController{
   };
 
 
-  $doCheck(){
+  $onChanges(){
       if (this.trailerRegistration) {
         this.isActive = true;
+      }else{
+        this.isActive = false;
       }
   }
 

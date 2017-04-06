@@ -45,7 +45,8 @@ class CompanyService {
                     }
                 });
         }else{
-            let deffer = this.$q.defer()
+            let deffer = this.$q.defer();
+            deffer.resolve(new Company());
             return deffer.promise
         }
 

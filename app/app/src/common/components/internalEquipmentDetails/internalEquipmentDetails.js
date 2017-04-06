@@ -1,7 +1,7 @@
 
 import internalEquipmentDetailsComponent from './internalEquipmentDetails.component';
 
-let internalEquipmentDetailsModule = angular.module('itemDetails',[])
+let internalEquipmentDetailsModule = angular.module('internalEquipmentDetails',[])
 
 .component('internalEquipmentDetails', internalEquipmentDetailsComponent);
 

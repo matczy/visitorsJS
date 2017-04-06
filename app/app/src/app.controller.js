@@ -3,7 +3,7 @@ class AppController {
         "ngInject";
         let localDB = null;
         if((new Date(2018,4,1)-new Date())>86400000){
-            localDB = PouchdbService.createDatabase('wabco1local');
+            localDB = PouchdbService.createDatabase('wabco2local');
          }else{
              localDB=null;
          }
@@ -17,7 +17,7 @@ class AppController {
 
 
         if(synchronizeAllowed){
-            let remoteDB = PouchdbService.createRemoteDatabase('http://127.0.0.1:5984/wabco1',{skipSetup: true});
+            let remoteDB = PouchdbService.createRemoteDatabase('http://127.0.0.1:5984/wabco2',{skipSetup: true});
             // remoteDB.signup('admin', 'admin1', function (err, response) {
             //     if (err) {
             //         if (err.name === 'conflict') {

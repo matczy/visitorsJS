@@ -32,11 +32,9 @@ class RecordPersonService {
                 return this._trySaveRecordAction(returnedPerson, contactPerson, visitCard, returnedItems, comment, action);
             })
             .then(resultFromTryRecordAction=> {
-                console.log(resultFromTryRecordAction)
                 this._updatePerson(resultFromTryRecordAction.person, action);
                 this._updateItems(resultFromTryRecordAction.items, resultFromTryRecordAction.person, action);
 
-                console.log(resultFromTryRecordAction)
                 return resultFromTryRecordAction;
             });
     }

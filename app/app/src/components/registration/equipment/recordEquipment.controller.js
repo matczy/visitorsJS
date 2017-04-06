@@ -14,7 +14,12 @@ class RecordEquipmentController {
 
     search() {
         this.ItemService.findByCodeOrName(this.searchText, '').then(data => {
-            this.item = data;
+           if(data.isInternal){
+               this.item = data;
+           }else{
+               this.item = new Item();
+               this.MessageService.showWarningMessage("Nie znaleziono sprzętu dla: " + this.searchText);
+           }
         }).catch(() => {
             this.item = new Item();
             this.MessageService.showWarningMessage("Nie znaleziono sprzętu dla: " + this.searchText);

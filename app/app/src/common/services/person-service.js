@@ -42,6 +42,7 @@ class PersonService {
                     let companyFound = data[0];
                     let personFound = data[1];
                     personFound.company = companyFound;
+                    personFound.phone = personFound.phone?personFound.phone:person.phone;
 
                     return personFound;
                 })

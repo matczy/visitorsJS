@@ -27,10 +27,10 @@ class ObjectsTabController {
 
         this.ItemService.loadItems().then((data)=>{
             this.items = _.filter(data, (e) => {
-                return e.isInternal == false;
+                return e.isInternal === false;
             })
             this.internalEquipments = _.filter(data, (e) => {
-                return e.isInternal == true;
+                return e.isInternal === true;
             })
         });
         this.TransportService.loadTransports().then((data)=>{
@@ -56,10 +56,10 @@ class ObjectsTabController {
         });
         this._$rootScope.$on(this.CONST.REFRESH_ITEMS, (event, data)=> {
             this.items = _.filter(data, (e) => {
-                return e.isInternal == false;
+                return e.isInternal === false;
             })
             this.internalEquipments = _.filter(data, (e) => {
-                return e.isInternal == true;
+                return e.isInternal === true;
             })
         });
 

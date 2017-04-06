@@ -142,7 +142,6 @@ class RecordTransportController extends RecordController {
     }
 
     entryAction() {
-        console.log("32423423")
         if (this.RecordTransportValidator.checkDriverIsNotOnPersonsList(this.transport)) {
             this.RecordTransportService.recordEntry(this.transport, this.contactPerson, this.visitCard, this.comment)
                 .then((successTransportResponse) => {
@@ -199,8 +198,6 @@ class RecordTransportController extends RecordController {
         this.DialogService.showWrongLocationMessage(data).then((result) => {
             this.RecordTransportService.changeLocationObject(result).then(() => {
                 this.RecordTransportService.recordEntry(transport, contactPerson, visitCard, comment).then((successTransportResponse) => {
-                    console.log(successTransportResponse);
-                    console.log(transport);
                     this.successAction("Poprawne zarejestrowany wjazd " + successTransportResponse.transport.vehicle.registration + '  ' + successTransportResponse.transport.driver.surnameAndName);
                     this._clearFields();
                 })
@@ -209,6 +206,7 @@ class RecordTransportController extends RecordController {
     }
 
     _wrongLocationExitAction(data, transport, contactPerson, visitCard, comment) {
+        console.log(data);
         this.DialogService.showWrongLocationMessage(data).then((result) => {
             this.RecordTransportService.changeLocationObject(result).then(() => {
                 this.RecordTransportService.recordExit(transport, contactPerson, visitCard, comment).then((successTransportResponse) => {
@@ -240,6 +238,8 @@ class RecordTransportController extends RecordController {
         this.$scope.recordTransport.$setDirty();
         this.$scope.recordTransport.$setPristine();
         this.$scope.recordTransport.$setUntouched();
+        this.contactPerson = new Person();
+
     }
 
 }

@@ -55,7 +55,7 @@
             <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px" ng-if="$ctrl.history.type!=='equipmentGate'">
                 <div layout="row" style="margin-bottom: 5px">
                     <div flex="25">Komentarz</div>
-                    <div flex><div>{{$ctrl.history.comment?$ctrl.history.comment.length:'Nie podano'}}</div></div>
+                    <div flex><div>{{$ctrl.history.comment.length?$ctrl.history.comment:'Nie podano'}}</div></div>
                 </div>
             </li>
         </ul>
@@ -75,7 +75,7 @@
                                 <div flex><strong>{{$ctrl.history.person.surnameAndName}}</strong></div>
                             </div>
                         </li>
-                        <li class="list-group-item fist-item" style="padding-top:5px;padding-bottom: 5px">
+                        <li class="list-group-item" style="padding-top:5px;padding-bottom: 5px">
                             <div layout="row" style="margin-bottom: 5px">
                                 <div flex="25">Telefon</div>
                                 <div flex><strong>{{$ctrl.history.person.phone?$ctrl.history.person.phone:'Nie podano'}}</strong></div>
@@ -299,6 +299,7 @@
         </div>
 
     </div>
+</div>
 </div>
 
 

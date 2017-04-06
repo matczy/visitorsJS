@@ -44,8 +44,9 @@ class RightPanelController {
 
 
     isItemObject() {
+
         if (this.object._id) {
-            return ((this.object._id.indexOf('items') !== -1 )&& (this.object.isInternal == false));
+            return ((this.object._id.indexOf('items') !== -1 )&& (this.object.isInternal === false));
         } else {
             return false;
         }
@@ -53,7 +54,7 @@ class RightPanelController {
 
     isInternalEquipmentObject() {
         if (this.object._id) {
-            return ((this.object._id.indexOf('items') !== -1) && (this.object.isInternal == true));
+            return ((this.object._id.indexOf('items') !== -1) && (this.object.isInternal === true));
         } else {
             return false;
         }

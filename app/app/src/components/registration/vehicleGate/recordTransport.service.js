@@ -32,7 +32,6 @@ class RecordTransportService {
     _tryRecord(transport, contactPerson, visitCard, comment, action) {
         let allCompaniesName = this._getAllCompaniesName(transport.driver, transport.passengers);
         return this.$q.all(this._createCompanies(allCompaniesName)).then((data) => {
-            console.log(data);
             let entryElems = [this.PersonService.getOrCreate(transport.driver), this.VehicleService.getOrCreate(transport.vehicle), this.TrailerService.getOrCreate(transport.trailer)]
                 .concat(this._getPassengersPromises(transport.passengers))
                 .concat(this._getItemsPromises(transport.items));

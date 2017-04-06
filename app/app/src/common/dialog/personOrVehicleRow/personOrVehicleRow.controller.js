@@ -11,6 +11,9 @@ class PersonOrVehicleController {
     isVehicle(){
         return this.object._id.indexOf('vehicles')!==-1
     }
+    isTrailer(){
+        return this.object._id.indexOf('trailers')!==-1
+    }
 }
 
 export default PersonOrVehicleController;

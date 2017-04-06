@@ -1,5 +1,6 @@
 class ItemDetailsController {
     constructor(){
+        console.log("sadddddddddddddddddddddd")
     }
 }
 
