@@ -19,6 +19,7 @@ class RecordPersonController extends RecordController{
         this.visitCard = {startDate: new Date(), endDate: new Date().setHours(23, 59, 59, 999)};
         this.comment = "";
         this.selectedItems = [];
+        this.companyIsOnBlackList= false;
 
     }
 
@@ -91,6 +92,11 @@ class RecordPersonController extends RecordController{
             this.SpeechRecognizerService.start();
 
         });
+
+        this._$rootScope.$on('isOnBlackList',(event,data)=>{
+            console.log("432423423423423324");
+            this.companyIsOnBlackList = data;
+        })
     }
 
     sendSurnameAndNameChangeEvent(surnameAndName) {
@@ -143,24 +149,25 @@ class RecordPersonController extends RecordController{
 
     _wrongLocationEntryAction(data, person, contactPerson, visitCard, items, comment) {
         this.DialogService.showWrongLocationMessage(data).then((result)=> {
-            this.RecordPersonService.changeLocationPerson(result).then(()=> {
-                this.RecordPersonService.recordEntry(person, contactPerson, visitCard, items, comment).then((successRecordingResponse)=> {
+            return this.RecordPersonService.changeLocationPerson(result,false).then((newPerson)=> {
+                console.log(newPerson)
+               return this.RecordPersonService.recordEntry(newPerson, contactPerson, visitCard, items, comment).then((successRecordingResponse)=> {
                     this.successAction("Poprawne zarejestrowanie wejścia " + successRecordingResponse.person.surnameAndName)
                     this._clearFields();
                 })
-            });
+            })
         });
     }
 
     _wrongLocationExitAction(data, person, contactPerson, visitCard, items, comment) {
         this.DialogService.showWrongLocationMessage(data).then((result)=> {
-            this.RecordPersonService.changeLocationPerson(result).then(()=> {
-                this.RecordPersonService.recordExit(person, contactPerson, visitCard, items, comment).then((successRecordingResponse)=> {
+            return this.RecordPersonService.changeLocationPerson(result,true).then((newPerson)=> {
+                return this.RecordPersonService.recordExit(newPerson, contactPerson, visitCard, items, comment).then((successRecordingResponse)=> {
                     this.successAction("Poprawne zarejestrowanie wyjścia " + successRecordingResponse.person.surnameAndName);
                     this._clearFields();
-                });
-            });
-        })
+                })
+            })
+        });
     }
 
     _getInsideWorkers() {

@@ -20,7 +20,6 @@ class PersonService {
     }
 
     putPerson(person) {
-        console.log(person)
         return this.PouchdbService.addDocument(person);
     }
 
@@ -77,7 +76,7 @@ class PersonService {
             }
             return this.$q.reject({
                 message: 'TO_MANY_RESULTS_PERSON',
-                data: sersBySurnameAndName.concat(usersByNameAndSurname)
+                data: usersBySurnameAndName.concat(usersByNameAndSurname)
             });
 
         })).catch(error=> {

@@ -75,8 +75,8 @@
     <label style="margin-bottom: 0;padding-bottom: 3px;padding-left:0">Firma</label>
     <div class="my-typehead-wrapper">
         <input type="text" ng-disabled="$ctrl.disabled"
-               ng-model="$ctrl.person.company" placeholder="firma" name="companyField"
-               uib-typeahead="company as company.name for company in $ctrl.companies | filter:$viewValue"
+               ng-model="$ctrl.person.company.name" placeholder="firma" name="companyField"
+               uib-typeahead="company.name as company.name for company in $ctrl.companies | filter:$viewValue"
                typeahead-min-length="0" class="form-control input-lg">
 
         <img ng-if="$ctrl.online && $ctrl.showRecordIcon('companyField',$ctrl.formName) && !$ctrl.disabled" ng-src="{{$ctrl.micAnimateSrc}}"

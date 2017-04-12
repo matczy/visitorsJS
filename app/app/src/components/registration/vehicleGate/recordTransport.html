@@ -8,9 +8,9 @@
                     <form role="form" name="recordTransport" novalidate>
                         <div layout="row">
                             <div layout="column" flex="50" style="padding-top:0">
-                                <div ng-if="$ctrl.transport.driver.isOnBlackList || $ctrl.transport.driver.isOnBlackList" class="alert alert-danger" style="margin-top:12px">
+                                <div ng-if="$ctrl.transport.driver.isOnBlackList || $ctrl.companyIsOnBlackList" class="alert alert-danger" style="margin-top:12px">
                                     <div ng-if="$ctrl.transport.driver.isOnBlackList"> Wybrana osoba znajduje sie na czarnej liście.</div>
-                                    <div ng-if="$ctrl.transport.driver.company.isOnBlackList">Wybrana firma znajduje sie na czarnej liście</div>
+                                    <div ng-if="$ctrl.companyIsOnBlackList">Wybrana firma znajduje sie na czarnej liście</div>
                                 </div>
 
                                 <person-field person="$ctrl.transport.driver" companies="$ctrl.companies"

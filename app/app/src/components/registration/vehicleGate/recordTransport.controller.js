@@ -23,6 +23,8 @@ class RecordTransportController extends RecordController {
         this.visitCard = {startDate: new Date(), endDate: new Date().setHours(23, 59, 59, 999)};
         this.comment = [];
         this.newPerson = new Person();
+        this.companyIsOnBlackList= false;
+
     }
 
     $onInit() {
@@ -39,7 +41,7 @@ class RecordTransportController extends RecordController {
 
         this._$rootScope.$on(this.CONST.CHOOSE_PERSON_PROMPT, (event, data) => {
             this.transport.driver = data.person;
-            this.transport.vehicle.registration = data.registration;
+            this.transport.vehicle.registration = this.transport.vehicle.registration?this.transport.vehicle.registration:data.registration;
         });
 
         this._$rootScope.$on(this.CONST.REFRESH_PERSONS, (event, data) => {
@@ -110,7 +112,7 @@ class RecordTransportController extends RecordController {
                     this.contactPerson.surnameAndName = val;
                 }
                 if (this.listeningOnFieldName === "recordTransport_commentField") {
-                    this.comment=val;
+                    this.comment = val;
 
                 }
                 // })
@@ -130,6 +132,10 @@ class RecordTransportController extends RecordController {
             this.listeningOnFieldName = data.field;
             this.SpeechRecognizerService.start();
         });
+
+        this._$rootScope.$on('isOnBlackList',(event,data)=>{
+            this.companyIsOnBlackList = data;
+        })
 
     }
 
@@ -195,8 +201,11 @@ class RecordTransportController extends RecordController {
     }
 
     _wrongLocationEntryAction(data, transport, contactPerson, visitCard, comment) {
-        this.DialogService.showWrongLocationMessage(data).then((result) => {
-            this.RecordTransportService.changeLocationObject(result).then(() => {
+        let objects = _.filter(data, (d) => {
+            return !!d._id;
+        });
+        this.DialogService.showWrongLocationMessage(objects).then((result) => {
+            this.RecordTransportService.changeLocationObject(result, false).then(() => {
                 this.RecordTransportService.recordEntry(transport, contactPerson, visitCard, comment).then((successTransportResponse) => {
                     this.successAction("Poprawne zarejestrowany wjazd " + successTransportResponse.transport.vehicle.registration + '  ' + successTransportResponse.transport.driver.surnameAndName);
                     this._clearFields();
@@ -206,9 +215,13 @@ class RecordTransportController extends RecordController {
     }
 
     _wrongLocationExitAction(data, transport, contactPerson, visitCard, comment) {
-        console.log(data);
-        this.DialogService.showWrongLocationMessage(data).then((result) => {
-            this.RecordTransportService.changeLocationObject(result).then(() => {
+        let objects = _.filter(data, (d) => {
+            return !!d._id;
+        });
+        this.DialogService.showWrongLocationMessage(objects).then((result) => {
+            this.RecordTransportService.changeLocationObject(result, true).then((newObjects) => {
+                console.log(newObjects);
+                console.log("dsadasda")
                 this.RecordTransportService.recordExit(transport, contactPerson, visitCard, comment).then((successTransportResponse) => {
                     this.successAction("Poprawne zarejestrowany wyjazd " + successTransportResponse.transport.vehicle.registration + '  ' + successTransportResponse.transport.driver.surnameAndName);
                     this._clearFields();

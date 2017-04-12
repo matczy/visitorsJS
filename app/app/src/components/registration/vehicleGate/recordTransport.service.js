@@ -240,7 +240,10 @@ class RecordTransportService {
         let promisses = [];
         objects.forEach((object) => {
             object.isOnObject = !object.isOnObject;
-            promisses.push(this.PouchdbService.addDocument(object));
+
+            promisses.push(this.PouchdbService.addDocument(object).then((result)=>{
+                return this.PouchdbService.getDocument(result.id);
+            }));
         });
         return this.$q.all(promisses);
     }

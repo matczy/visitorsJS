@@ -23,9 +23,12 @@ class RecordPersonService {
     }
 
     _tryRecord(person, contactPerson, visitCard, items, comment, action) {
+        console.log('recordPErson service')
+        console.log(person)
         let entryElems = [this.PersonService.getOrCreate(person)].concat(this._getItemsPromises(items));
         return this.$q.all(entryElems)
             .then((results)=> {
+            console.log(results[0])
                 let returnedPerson = results[0];
                 let returnedItems = this._getItems(results);
 
@@ -87,11 +90,12 @@ class RecordPersonService {
         });
     }
 
-    changeLocationPerson(objects) {
+    changeLocationPerson(objects, isOnObject) {
         let person = objects[0];
-        person.isOnObject = !person.isOnObject;
-
-        return this.PouchdbService.addDocument(person);
+        person.isOnObject = isOnObject;
+        return this.PouchdbService.addDocument(person).then((result)=>{
+           return this.PersonService.getPerson(result.id);
+        });
     }
 
 }
