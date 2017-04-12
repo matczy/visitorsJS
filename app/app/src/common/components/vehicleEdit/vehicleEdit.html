@@ -6,7 +6,7 @@
 
         <div layout-padding="4">
             <label>Rejestracja</label>
-            <input ng-model="$ctrl.object.registration"   type="text" placeholder="Rejestracja" name="registrationField"
+            <input ng-model="$ctrl.vehicle.registration"   type="text" placeholder="Rejestracja" name="registrationField"
                    class="form-control input-lg">
         </div>
 
@@ -14,7 +14,7 @@
 
 
         <div layout="row" layout-padding >
-            <action-button on-click="$ctrl.onEditAction({vehicle:object})" title="Edytuj" color="btn-primary" size="sm"
+            <action-button on-click="$ctrl.onEditAction({vehicle:$ctrl.vehicle})" title="Edytuj" color="btn-primary" size="sm"
                            style="margin-right:10px"></action-button>
             <action-button on-click="$ctrl.exitEditMode()" title="Anuluj" color="btn-default" size="sm"></action-button>
         </div>

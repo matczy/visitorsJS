@@ -15,6 +15,7 @@ class PersonDialogController extends DialogController{
 
 
     ok(data) {
+        console.log("create new person")
         console.log(data)
         this.PersonService.findByNameAndIdentyfier(data.surnameAndName, data.documentIdentifier).then(foundedPerson=>{
             this.errorMessage = "Osoba o podanych danych Nazwisko imię , identyfikator znajduje się już w bazie danych"

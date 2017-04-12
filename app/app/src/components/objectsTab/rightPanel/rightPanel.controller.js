@@ -85,27 +85,34 @@ class RightPanelController {
 
     editedPerson(person){
         this.PersonService.putPerson(person).then((result)=>{
-            // this._$rootScope.$broadcast(this.CONST.REFRESH_PERSONS);
-            this.MessageService.showInfoMessage('Poprawnie zaktualizowano osobę');
-            this.isEditedMode=false;
+            return this.PersonService.getPerson(result.id).then((person)=>{
+                this.object = person;
+                this.MessageService.showInfoMessage('Poprawnie zaktualizowano osobę');
+                this.isEditedMode=false;
+            });
+        }).catch((error)=>{
+            console.log("error "+error)
         });
     }
 
     editedItem(item){
         this.ItemService.putItem(item).then((result)=>{
-            // this._$rootScope.$broadcast(this.CONST.REFRESH_ITEMS);
-            this.MessageService.showInfoMessage('Poprawnie zaktualizowano przedmiot');
-            this.isEditedMode=false;
+            return this.ItemService.getItem(result.id).then((item)=>{
+                this.object = item;
+                this.MessageService.showInfoMessage('Poprawnie zaktualizowano przedmiot');
+                this.isEditedMode=false;
+            });
         });
     }
 
     editedCompany(company){
         this.CompanyService.putCompany(company).then((result)=>{
-
-            this._updatePersonsForCompany(company);
-            // this._$rootScope.$broadcast(this.CONST.REFRESH_COMPANY);
-            this.MessageService.showInfoMessage('Poprawnie zaktualizowano firmę');
-            this.isEditedMode=false;
+            return this.CompanyService.getCompany(result.id).then((company)=>{
+                this.object = company;
+                this._updatePersonsForCompany(company);
+                this.MessageService.showInfoMessage('Poprawnie zaktualizowano firmę');
+                this.isEditedMode=false;
+            });
         });
     }
 
@@ -123,17 +130,22 @@ class RightPanelController {
     }
 
     editedVehicle(vehicle){
-        if (this.vehicle._id.indexOf('vehicles') !== -1) {
+        if (vehicle._id.indexOf('vehicles') !== -1) {
             this.VehicleService.putVehicle(vehicle).then((result)=>{
-                // this._$rootScope.$broadcast(this.CONST.REFRESH_VEHICLES);
-                this.MessageService.showInfoMessage('Poprawnie zaktualizowano pojazd');
-                this.isEditedMode=false;
+                return this.VehicleService.getVehicle(result.id).then((vehicle)=>{
+                    this.object = vehicle;
+                    this.MessageService.showInfoMessage('Poprawnie zaktualizowano pojazd');
+                    this.isEditedMode=false;
+                });
+
             });
         } else {
             this.TrailerService.putTrailer(vehicle).then((result)=>{
-                // this._$rootScope.$broadcast(this.CONST.REFRESH_VEHICLES);
-                this.MessageService.showInfoMessage('Poprawnie zaktualizowano naczepę');
-                this.isEditedMode=false;
+                return this.TrailerService.getTrailer(result.id).then((trailer)=>{
+                    this.object = trailer;
+                    this.MessageService.showInfoMessage('Poprawnie zaktualizowano naczepę');
+                    this.isEditedMode=false;
+                });
             });
         }
 

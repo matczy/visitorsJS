@@ -46,7 +46,7 @@
                         <li class=list-group-item" ng-repeat="worker in $ctrl.workers" >
                             <div layout="row" style="padding: 5px 5px 5px 0;">
                                 <div flex="5">{{$index+1}}.</div>
-                                <div flex><strong>{{worker.surnameAndName}}</strong><span><i class="fa fa-phone" style="margin-left:8px">{{worker.phone}}</i></span></div>
+                                <div flex><strong>{{worker.surnameAndName}}</strong><span ng-if="worker.phone"><i class="fa fa-phone" style="margin-left:8px">{{worker.phone}}</i></span></div>
                             </div>
                         </li>
                     </ul>

@@ -15,8 +15,16 @@ class VehicleTypeController {
             this.name='Naczepa';
             this.class="label-info";
         }
+    }
 
-
+    $onChanges(){
+        if(this.type.indexOf('vehicles')!==-1){
+            this.name='Pojazd';
+            this.class="label-default";
+        }else {
+            this.name='Naczepa';
+            this.class="label-info";
+        }
     }
 }
 

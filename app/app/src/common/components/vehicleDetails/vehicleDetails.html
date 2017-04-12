@@ -37,7 +37,7 @@
                         <div flex>Wejście:
                             <span><strong>{{$ctrl.vehicle.lastEntry |date:'yy-MM-dd HH:mm'}}</strong></span></div>
                         <div flex>Wyjście: <span flex ng-if="$ctrl.vehicle.lastExit"><strong>{{$ctrl.vehicle.lastExit |date:'yy-MM-dd HH:mm'}}</strong></span>
-                            <span ng-if="!$ctrl.vehicle.lastExit"
+                            <span ng-if="!$ctrl.vehicle.lastExit && $ctrl.vehicle.lastEntry"
                                   class="green-text"><strong>Na obiekcie</strong></span>
                         </div>
 

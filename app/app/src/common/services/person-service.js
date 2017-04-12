@@ -43,6 +43,7 @@ class PersonService {
                     let personFound = data[1];
                     personFound.company = companyFound;
                     personFound.phone = personFound.phone?personFound.phone:person.phone;
+                    personFound.isOnBlackList = person.isOnBlackList;
 
                     return personFound;
                 })
@@ -89,6 +90,7 @@ class PersonService {
     create(person) {
         let id = person._id = 'persons' + person.surnameAndName.replace(/ /g, '').toLowerCase() + person.documentIdentifier.toLowerCase() + '-' + new Date().toISOString();
         let newPerson = new Person(id,person.surnameAndName,person.company,person.documentIdentifier,person.phone,person.type);
+        newPerson.isOnBlackList = person.isOnBlackList;
 
         if(newPerson.company && newPerson.company.name){
             return this.CompanyService.getOrCreate(newPerson.company)

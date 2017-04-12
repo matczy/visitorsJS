@@ -46,7 +46,7 @@
             </div>
             <ul class="list-group list-unstyled">
 
-                <li class=list-group-item" ng-repeat="elem in $ctrl.currentVehicles track by elem._id|filter:$ctrl.searchText">
+                <li class=list-group-item" ng-repeat="elem in $ctrl.currentVehicles|filter:$ctrl.searchText">
                     <vehicle_row flex vehicle="elem" on_action="$ctrl.showDetails({object:elem})"
                                  on_action_title="Szczegóły" show_created_date="true" show_last_entry="false"
                                  ng-if="$ctrl.isVehicle(elem)"></vehicle_row>

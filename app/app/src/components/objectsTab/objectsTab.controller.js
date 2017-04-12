@@ -93,8 +93,8 @@ class ObjectsTabController {
         }
 
         if (object._id.indexOf('vehicles') !== -1) {
-            this.VehicleService.getVehicle(object._id).then(vehilce=> {
-                this.objectDetails = vehilce;
+            this.VehicleService.getVehicle(object._id).then(vehicle=> {
+                this.objectDetails = vehicle;
             })
         }
         if (object._id.indexOf('trailers') !== -1) {

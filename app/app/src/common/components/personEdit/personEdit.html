@@ -22,7 +22,7 @@
         </div>
 
         <div layout="row" layout-padding>
-            <action-button on-click="$ctrl.onEditAction({person:object})" title="Edytuj" color="btn-primary" size="sm"
+            <action-button on-click="$ctrl.onEditAction({person:$ctrl.person})" title="Edytuj" color="btn-primary" size="sm"
                            style="margin-right:10px"></action-button>
             <action-button on-click="$ctrl.exitEditMode()" title="Anuluj" color="btn-default" size="sm"></action-button>
         </div>
