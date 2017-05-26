@@ -5,7 +5,7 @@
         <div flex>
             <div class="btn-group" style="margin-right: 20px">
                 <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
-                       uib-btn-radio="'all'">Wszyscy ({{$ctrl.currentPersons.length}})</label>
+                       uib-btn-radio="'all'">Wszyscy ({{$ctrl.persons.length}})</label>
             </div>
             <div class="btn-group">
                 <label class="btn btn-sm btn-white" ng-model="$ctrl.selectedType" ng-change="$ctrl.filterData()"
@@ -26,8 +26,8 @@
         <div flex class="input-group">
             <input type="text" placeholder=" Wyszukaj ... " class="input form-control" ng-model="$ctrl.searchText">
             <span class="input-group-btn">
-                    <button type="button" class="btn btn-default"> <i class="fa fa-search"
-                                                                      style="padding:0"></i> </button>
+                    <button type="button" class="btn btn-default" ng-click="$ctrl.filterData()"> <i class="fa fa-search"
+                                                                      style="padding:0" ></i> </button>
                 </span>
 
         </div>
@@ -45,13 +45,18 @@
             <div>
                 <ul class="list-group list-unstyled">
 
-                    <li class=list-group-item" ng-repeat="elem in $ctrl.currentPersons|filter:$ctrl.searchText">
+                    <li class=list-group-item" ng-repeat="elem in $ctrl.currentPersons">
                         <person_row flex person="elem" on_action="$ctrl.showDetails({object:elem})" on_action_title="Szczegóły"
                                     show_created_date="true" show_last_entry="false"></person_row>
                     </li>
                     <li>
-                        <div ng-if="$ctrl.currentPersons.length==0" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                        <div ng-if="$ctrl.currentPersons.length==0 && $ctrl.searchText" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
                             <div >                             Brak osób do wyświetlenia
+                            </div>
+                        </div>
+
+                        <div ng-if="!$ctrl.searchText" style="min-height:300px;height: 100%;font-size:15px" layout="row" layout-align="center center">
+                            <div >                           Proszę wpisać dane szukanej osoby w wyszukiwarce
                             </div>
                         </div>
                     </li>

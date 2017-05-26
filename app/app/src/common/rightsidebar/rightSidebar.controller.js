@@ -115,9 +115,11 @@ class RightSidebarController {
         this.prompts = this.persons.filter(function (person) {
             return (person.surnameAndName.toLowerCase().indexOf(data) > -1) || (person.surnameAndName.toLowerCase().split(' ').reverse().join(' ').indexOf(data) > -1)
         });
+
         // if(this.prompts.length==1){
         //     this.choosePrompt({person:this.prompts[0]})
         // }
+        this.prompts = this.prompts.slice(0,19)
 
     }
 
@@ -128,6 +130,8 @@ class RightSidebarController {
         this.prompts = this.persons.filter(function (person) {
             return (person.surnameAndName.toLowerCase().indexOf(data) > -1) || (person.surnameAndName.toLowerCase().split(' ').reverse().join(' ').indexOf(data) > -1)
         });
+
+        this.prompts = this.prompts.slice(0,19)
 
         // if(this.prompts.length==1){
         //     this.choosePrompt({person:this.prompts[0]})
@@ -142,6 +146,8 @@ class RightSidebarController {
         this.prompts = this.items.filter(function (item) {
             return (item.code.toLowerCase().indexOf(data) > -1)
         });
+        this.prompts= this.prompts.slice(0,19)
+
     }
 
 
